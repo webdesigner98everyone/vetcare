@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Carlos Gómez",
+      "address": "Calle 123, Medellín, Colombia",
+      "contact": "+57 300 123 4567",
+      "email": "carlos.gomez@email.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "María Rodríguez",
+      "address": "Carrera 45, Bogotá, Colombia",
+      "contact": "+57 301 987 6543",
+      "email": "maria.rodriguez@email.com",
+      "password": "abcdef",
+      "role": "viewer"
+    },
+    {
+      "id": 3,
+      "name": "Luis Fernández",
+      "address": "Avenida 10, Cali, Colombia",
+      "contact": "+57 302 111 2233",
+      "email": "luis.fernandez@email.com",
+      "password": "qwerty",
+      "role": "viewer"
+    },
+    {
+      "id": "4e26",
+      "name": "Luis forero",
+      "email": "luisfoguz1198@gmail.com",
+      "password": "elfore",
+      "role": "viewer"
+    },
+    {
+      "id": "81ab",
+      "name": "brenda loaizaz",
+      "email": "aleloa1993.bala@gmail.com",
+      "password": "cucu",
+      "address": "cr121a #47a-46",
+      "contact": "3184265820",
+      "role": "viewer"
+    }
+  ],
+  "pets": [
+    {
+      "id": 1,
+      "ownerId": 1,
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOJE8T-p6-AOxK7pi2SjgWmNXU29kdPqxJg&s",
+      "name": "Rex",
+      "breed": "Labrador Retriever",
+      "species": "Perro",
+      "gender": "Macho",
+      "birthDate": "2021-05-12",
+      "microchip": "1234567890"
+    },
+    {
+      "id": 2,
+      "ownerId": 1,
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW1IdS2CLigVKb84B4FrSWcVKt0wQufXDlxw&s",
+      "name": "Mia",
+      "breed": "Siames",
+      "species": "Gato",
+      "gender": "Hembra",
+      "birthDate": "2020-08-20",
+      "microchip": "0987654321"
+    },
+    {
+      "id": 3,
+      "ownerId": 2,
+      "photo": "https://misanimales.com/wp-content/uploads/2021/07/golden-retriever-valla.jpg",
+      "name": "Luna",
+      "breed": "Golden Retriever",
+      "species": "Perro",
+      "gender": "Hembra",
+      "birthDate": "2019-10-15",
+      "microchip": "5678901234"
+    },
+    {
+      "id": 4,
+      "ownerId": 3,
+      "photo": "https://www.hola.com/horizon/landscape/a7e539c5282d-raza-de-perro-pastor-aleman-t.jpg?im=Resize=(1200)",
+      "name": "Max",
+      "breed": "Pastor Alemán",
+      "species": "Perro",
+      "gender": "Macho",
+      "birthDate": "2022-01-30",
+      "microchip": "6789012345"
+    }
+  ]
+}

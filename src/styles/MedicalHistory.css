@@ -1,0 +1,8 @@
+.history-container {
+    min-height: 100vh; /* Hace que el Dashboard ocupe toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  

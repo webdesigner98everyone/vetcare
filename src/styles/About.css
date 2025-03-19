@@ -1,0 +1,85 @@
+.about-container {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e73be;
+    text-transform: uppercase;
+  }
+  
+  .highlight {
+    color: #f5b700;
+  }
+  
+  .about-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .about-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .about-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .about-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1e73be;
+    margin-bottom: 15px;
+  }
+  
+  .about-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Estilos para las tarjetas de valores */
+  .about-values {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+  }
+  
+  .value-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .value-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+  }
+  
+  .value-card h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1e73be;
+    margin-bottom: 10px;
+  }
+  
+  .value-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
