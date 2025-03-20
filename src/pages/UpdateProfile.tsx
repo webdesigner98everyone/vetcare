@@ -65,7 +65,28 @@ export default function UpdateProfile() {
 
                         <div className="d-flex gap-2">
                             <Button variant="secondary" className="w-50" onClick={cancelUpdate}>Cancelar</Button>
-                            <Button variant="primary" type="submit" className="w-50">Guardar Cambios</Button>
+                            <Button
+                                type="submit"
+                                className="w-50"
+                                style={{
+                                    backgroundColor: "#2c7a7b",
+                                    borderColor: "#2c7a7b",
+                                    color: "white",
+                                }}
+                                onMouseOver={(e) => {
+                                    const button = e.target as HTMLButtonElement; // 👈 Hacemos el cast aquí
+                                    button.style.backgroundColor = "#ff9900";
+                                    button.style.borderColor = "#ff9900";
+                                }}
+                                onMouseOut={(e) => {
+                                    const button = e.target as HTMLButtonElement; // 👈 Hacemos el cast aquí
+                                    button.style.backgroundColor = "#2c7a7b";
+                                    button.style.borderColor = "#2c7a7b";
+                                }}
+                            >
+                                Guardar Cambios
+                            </Button>
+
                         </div>
                     </Form>
                 </Card.Body>

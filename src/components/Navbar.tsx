@@ -44,7 +44,25 @@ export default function NavigationBar() {
 
                 {/* Menú desplegable con Actualizar Datos y Cerrar Sesión */}
                 <Dropdown as={Nav.Item}>
-                  <Dropdown.Toggle as={Nav.Link} id="dropdown-user">
+                  <Dropdown.Toggle
+                    as={Nav.Link}
+                    id="dropdown-user"
+                    style={{
+                      backgroundColor: "#2c7a7b",
+                      borderColor: "#2c7a7b",
+                      color: "white",
+                    }}
+                    onMouseOver={(e) => {
+                      const dropdown = e.target as HTMLAnchorElement; // 👈 Hacemos el cast
+                      dropdown.style.backgroundColor = "#ff9900";
+                      dropdown.style.borderColor = "#ff9900";
+                    }}
+                    onMouseOut={(e) => {
+                      const dropdown = e.target as HTMLAnchorElement; // 👈 Hacemos el cast
+                      dropdown.style.backgroundColor = "#2c7a7b";
+                      dropdown.style.borderColor = "#2c7a7b";
+                    }}
+                  >
                     {user.name || "Usuario"}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
@@ -56,6 +74,7 @@ export default function NavigationBar() {
                     </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
+
               </>
             ) : (
               <>

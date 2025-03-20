@@ -22,7 +22,7 @@ export default function AppRoutes() {
       <Route path="/register" element={<Register />} />
       <Route path="/privacidad" element={<PrivacyPolicy />} />
       <Route path="/update-profile" element={<UpdateProfile />} />
-      <Route path="/" element={<About />} />
+      <Route path="/About" element={<About />} />
 
       {/* Rutas protegidas */}
       <Route path="/dashboard" element={
