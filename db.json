@@ -13,7 +13,7 @@
       "id": "2",
       "name": "María Rodríguez",
       "address": "Carrera 45, Bogotá, Colombia",
-      "contact": "+57 301 987 6543",
+      "contact": "301 987 6543",
       "email": "maria.rodriguez@email.com",
       "password": "abcdef",
       "role": "viewer"
@@ -36,7 +36,7 @@
     },
     {
       "id": "81ab",
-      "name": "brenda loaiza Arenas",
+      "name": "Brenda Loaiza Arenas",
       "email": "aleloa1993.bala@gmail.com",
       "password": "cucu",
       "address": "cr121a #46a-47 / Conjunto Ventura2",
@@ -85,7 +85,7 @@
     },
     {
       "id": "2",
-      "ownerId": 1,
+      "ownerId": 2,
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW1IdS2CLigVKb84B4FrSWcVKt0wQufXDlxw&s",
       "name": "Mia",
       "breed": "Siames",
@@ -104,6 +104,17 @@
       "gender": "Hembra",
       "birthDate": "2019-10-15",
       "microchip": "5678901234"
+    },
+    {
+      "id": "3",
+      "ownerId": 2,
+      "photo": "https://www.purina.es/sites/default/files/styles/ttt_image_510/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-09Pomeranian.jpg?itok=vAEj3qjQ",
+      "name": "Loki",
+      "breed": "Pomerania",
+      "species": "Perro",
+      "gender": "Macho",
+      "birthDate": "2023-07-04",
+      "microchip": "N/a"
     },
     {
       "id": "4",

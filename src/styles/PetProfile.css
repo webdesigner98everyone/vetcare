@@ -1,8 +1,87 @@
+/* Estilos generales */
 .profile-container {
-    min-height: 100vh; /* Hace que el Dashboard ocupe toda la pantalla */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Estilos para el contenedor de tarjetas */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilos para las tarjetas de mascotas */
+.card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px #2c7a7b;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: white;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px;
+  color: #ff9900;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #ff9900;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: beige;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff9900;
+  text-transform: uppercase;
+}
+
+.card-text {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.5;
+  color: #2c7a7b;
+}
+
+/* Estilos para el spinner de carga */
+.text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.spinner-border {
+  color: #ff9900 !important;
+}
+
+/* Estilos para alertas */
+.alert-danger, .alert-warning {
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+}
