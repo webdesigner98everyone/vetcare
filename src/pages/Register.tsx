@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { FaUser, FaEnvelope, FaLock, FaMapMarkerAlt, FaPhone, FaUsers } from "react-icons/fa";
 import "../styles/Register.css";
 
 const Register: React.FC = () => {
@@ -7,9 +8,9 @@ const Register: React.FC = () => {
     name: "",
     email: "",
     password: "",
-    address: "",   // Nuevo campo: Dirección
-    contact: "",   // Nuevo campo: Contacto
-    role: "viewer", // Viewer por defecto
+    address: "",
+    contact: "",
+    role: "viewer",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -28,21 +29,46 @@ const Register: React.FC = () => {
 
   return (
     <div className="register-container">
-      <h1>Registro de Usuario</h1>
+      <h1>
+        <span role="img" className="emoji">🐾</span> Registro <span role="img" className="emoji">🐶</span>
+      </h1>
+      <p>Completa el formulario para crear una cuenta</p>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Nombre" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Correo" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} required />
-        <input type="text" name="address" placeholder="Dirección" onChange={handleChange} required />  {/* Nuevo campo */}
-        <input type="text" name="contact" placeholder="Contacto" onChange={handleChange} required />  {/* Nuevo campo */}
+        <div className="input-group">
+          <FaUser />
+          <input type="text" name="name" placeholder="Nombre" onChange={handleChange} required />
+        </div>
 
-        {/* Selección de rol */}
-        <select name="role" onChange={handleChange} required>
-          <option value="viewer">Viewer</option>
-          <option value="admin">Admin</option>
-        </select>
+        <div className="input-group">
+          <FaEnvelope />
+          <input type="email" name="email" placeholder="Correo" onChange={handleChange} required />
+        </div>
 
-        <button type="submit">Registrar Usuario</button>
+        <div className="input-group">
+          <FaLock />
+          <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} required />
+        </div>
+
+        <div className="input-group">
+          <FaMapMarkerAlt />
+          <input type="text" name="address" placeholder="Dirección" onChange={handleChange} required />
+        </div>
+
+        <div className="input-group">
+          <FaPhone />
+          <input type="text" name="contact" placeholder="Contacto" onChange={handleChange} required />
+        </div>
+
+        <div className="input-group">
+          <FaUsers />
+          <select name="role" onChange={handleChange} required>
+            <option value="viewer">Tipo de Usuario</option>
+            <option value="viewer">Viewer</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <button type="submit" className="register-button">Registrar Usuario</button>
       </form>
     </div>
   );

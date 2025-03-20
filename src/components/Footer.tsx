@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import "../styles/Footer.css";
+import Logo from "../assets/Logo.jpg"; 
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const Footer: React.FC = () => {
         <Row className="footer-content">
           {/* Logo Izquierda */}
           <Col md={4} className="footer-logo">
-            <img src="/logo.png" alt="Empresa Logo" className="logo-img" />
+            <img src={Logo} alt="Empresa Logo" className="logo-img" />
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
               <FaInstagram className="social-icon" />
             </a>

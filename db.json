@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Carlos Gómez",
       "address": "Calle 123, Medellín, Colombia",
       "contact": "+57 300 123 4567",
@@ -10,7 +10,7 @@
       "role": "admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "María Rodríguez",
       "address": "Carrera 45, Bogotá, Colombia",
       "contact": "+57 301 987 6543",
@@ -19,7 +19,7 @@
       "role": "viewer"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Luis Fernández",
       "address": "Avenida 10, Cali, Colombia",
       "contact": "+57 302 111 2233",
@@ -42,11 +42,20 @@
       "address": "cr121a #47a-46",
       "contact": "3184265820",
       "role": "viewer"
+    },
+    {
+      "id": "100e",
+      "name": "joseph orlando",
+      "email": "joseph.orlando@gmail.com",
+      "password": "saiko",
+      "address": "Cra121a 47a-46",
+      "contact": "318 3011943",
+      "role": "viewer"
     }
   ],
   "pets": [
     {
-      "id": 1,
+      "id": "1",
       "ownerId": 1,
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOJE8T-p6-AOxK7pi2SjgWmNXU29kdPqxJg&s",
       "name": "Rex",
@@ -57,7 +66,7 @@
       "microchip": "1234567890"
     },
     {
-      "id": 2,
+      "id": "2",
       "ownerId": 1,
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW1IdS2CLigVKb84B4FrSWcVKt0wQufXDlxw&s",
       "name": "Mia",
@@ -68,7 +77,7 @@
       "microchip": "0987654321"
     },
     {
-      "id": 3,
+      "id": "3",
       "ownerId": 2,
       "photo": "https://misanimales.com/wp-content/uploads/2021/07/golden-retriever-valla.jpg",
       "name": "Luna",
@@ -79,7 +88,7 @@
       "microchip": "5678901234"
     },
     {
-      "id": 4,
+      "id": "4",
       "ownerId": 3,
       "photo": "https://www.hola.com/horizon/landscape/a7e539c5282d-raza-de-perro-pastor-aleman-t.jpg?im=Resize=(1200)",
       "name": "Max",
