@@ -1,56 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Form, Button, Container, Card, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { getUserById, updateUser } from "../components/logic/UpdateProfileLogic";
+import { useProfileLogic } from "../components/logic/UpdateProfileLogic";
 import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { ConfirmModal } from "../components/ConfirmModal";
 
 export default function UpdateProfile() {
     const navigate = useNavigate();
-
-    const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")!) : null;
-    const userId = user?.id;
-    const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
-
-    const [userData, setUserData] = useState({
-        name: "",
-        email: "",
-        contact: "",
-        address: "",
-    });
-
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        if (!isAuthenticated || !userId) {
-            setMessage("Usuario no autenticado");
-            return;
-        }
-
-        getUserById(userId)
-            .then(data => setUserData(data))
-            .catch(error => setMessage(error.message));
-    }, [userId, isAuthenticated]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUserData({ ...userData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        if (!userId) {
-            setMessage("No se puede actualizar el perfil sin un ID de usuario");
-            return;
-        }
-
-        try {
-            const successMessage = await updateUser(userId, userData);
-            setMessage(successMessage);
-            setTimeout(() => navigate("/"), 2000);
-        } catch (error: any) {
-            setMessage(error.message);
-        }
-    };
+    const { userData, message, showModal, setShowModal, handleChange, handleSubmit, confirmUpdate, cancelUpdate } = useProfileLogic(navigate);
 
     return (
         <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
@@ -64,7 +21,7 @@ export default function UpdateProfile() {
 
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
-                            <Form.Label style={{ color: "#2c7a7b" }} ><FaUser /> Nombre</Form.Label>
+                            <Form.Label style={{ color: "#2c7a7b" }}><FaUser /> Nombre</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="name"
@@ -85,7 +42,7 @@ export default function UpdateProfile() {
                         </Form.Group>
 
                         <Form.Group className="mb-3">
-                            <Form.Label style={{ color: "#2c7a7b" }}><FaPhone /> Teléfono</Form.Label>
+                            <Form.Label style={{ color: "#2c7a7b" }}><FaPhone /> Contacto</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="contact"
@@ -106,29 +63,20 @@ export default function UpdateProfile() {
                             />
                         </Form.Group>
 
-                        <Button
-                            className="w-100"
-                            type="submit"
-                            style={{
-                                backgroundColor: "#2c7a7b",
-                                borderColor: "#2c7a7b",
-                                color: "white",
-                                transition: "background-color 0.3s ease, border-color 0.3s ease",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = "#ff9900";
-                                e.currentTarget.style.borderColor = "#ff9900";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = "#2c7a7b";
-                                e.currentTarget.style.borderColor = "#2c7a7b";
-                            }}
-                        >
-                            Actualizar Datos
-                        </Button>
+                        <div className="d-flex gap-2">
+                            <Button variant="secondary" className="w-50" onClick={cancelUpdate}>Cancelar</Button>
+                            <Button variant="primary" type="submit" className="w-50">Guardar Cambios</Button>
+                        </div>
                     </Form>
                 </Card.Body>
             </Card>
+
+            {/* Modal de confirmación */}
+            <ConfirmModal
+                show={showModal}
+                onCancel={() => setShowModal(false)}  // Cambiado de handleClose a onCancel
+                onConfirm={confirmUpdate}
+            />
         </Container>
     );
 }
