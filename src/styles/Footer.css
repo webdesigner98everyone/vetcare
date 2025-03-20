@@ -7,27 +7,36 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Contenido organizado en tres columnas */
+/* Contenido del footer */
 .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-}
-
-/* Logo y redes sociales */
-.footer-logo {
   text-align: center;
 }
 
+/* Secciones del footer */
+.footer-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Logo */
 .logo-img {
-  width: 210px;
+  width: 180px;
   margin-bottom: 10px;
+}
+
+/* Redes sociales */
+.social-icons {
+  margin-top: 10px;
 }
 
 .social-icon {
   font-size: 1.5rem;
   color: #fff;
+  margin: 0 10px;
   transition: color 0.3s ease, transform 0.2s ease-in-out;
 }
 
@@ -37,26 +46,19 @@
 }
 
 /* Información de la empresa */
-.footer-info h5 {
+.footer-section h5 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.footer-info p {
+.footer-section p {
   margin: 3px 0;
   font-size: 1rem;
-  color: #fff;
 }
 
 /* Enlaces */
-.footer-links h5 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer-links ul {
+.footer-links {
   list-style: none;
   padding: 0;
 }
@@ -81,7 +83,7 @@
 .footer-divider {
   width: 80%;
   margin: 20px auto;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Texto de derechos reservados */
@@ -121,6 +123,10 @@
   .footer-content {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer-section {
+    margin-bottom: 25px;
   }
 
   .social-icon {

@@ -10,16 +10,18 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <Container>
         <Row className="footer-content">
-          {/* Logo Izquierda */}
-          <Col md={4} className="footer-logo">
+          {/* Logo e Instagram */}
+          <Col md={4} className="footer-section text-center">
             <img src={Logo} alt="Empresa Logo" className="logo-img" />
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="social-icon" />
-            </a>
+            <div className="social-icons">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <FaInstagram className="social-icon" />
+              </a>
+            </div>
           </Col>
 
           {/* Información de la Empresa */}
-          <Col md={4} className="footer-info">
+          <Col md={4} className="footer-section">
             <h5>VETCARE MANAGER.</h5>
             <p>Carrera 15A #10A - 3</p>
             <p>Cali - Colombia</p>
@@ -27,9 +29,9 @@ const Footer: React.FC = () => {
           </Col>
 
           {/* Enlaces de Navegación */}
-          <Col md={4} className="footer-links">
+          <Col md={4} className="footer-section">
             <h5>INFO</h5>
-            <ul>
+            <ul className="footer-links">
               <li><Link to="/About">Quienes Somos</Link></li>
               <li><Link to="/">Servicios</Link></li>
               <li><Link to="/Contact">Contáctanos</Link></li>
