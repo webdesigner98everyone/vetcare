@@ -1,8 +1,72 @@
-.history-container {
-    min-height: 100vh; /* Hace que el Dashboard ocupe toda la pantalla */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+/* Estilos para el contenedor principal */
+.medical-history-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff; /* Fondo blanco */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #333; /* Color oscuro para mejor legibilidad */
+}
+
+/* Estilo para el título "Historial Médico" */
+.medical-history-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #444;
+}
+
+/* Estilos de las tarjetas de historial médico */
+.medical-card {
+  background: #f9f9f9; /* Fondo claro */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.medical-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de los subtítulos */
+.medical-card h3 {
+  color: #ff7b00; /* Color naranja para destacar */
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.medical-card h4 {
+  color: #555;
+  margin-top: 15px;
+}
+
+/* Estilos de los párrafos */
+.medical-card p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Lista de registros */
+.medical-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.medical-list li {
+  background: #fff;
+  padding: 12px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border-left: 4px solid #ff7b00; /* Resaltado lateral */
+}
+
+.medical-list li strong {
+  color: #ff7b00; /* Naranja para destacar */
+}
