@@ -51,6 +51,24 @@
       "address": "Cra121a 47a-46",
       "contact": "318 3011943",
       "role": "viewer"
+    },
+    {
+      "id": "bd37",
+      "name": "Nayibe Catalina",
+      "email": "nayo.catalina@gmail.com",
+      "password": "princesa",
+      "address": "calle50-101-60",
+      "contact": "3184265822",
+      "role": "Tipo de Usuario"
+    },
+    {
+      "id": "6f5c",
+      "name": "marcela forero",
+      "email": "marfo.forero@hotmail.com",
+      "password": "1198",
+      "address": "calle41 101f-60",
+      "contact": "3217586894",
+      "role": "viewer"
     }
   ],
   "pets": [

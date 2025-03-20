@@ -1,34 +1,16 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { FaUser, FaEnvelope, FaLock, FaMapMarkerAlt, FaPhone, FaUsers } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Register.css";
+import { useRegisterLogic } from "../components/logic/RegisterLogic";
 
 const Register: React.FC = () => {
-  const [user, setUser] = useState({
-    name: "",
-    email: "",
-    password: "",
-    address: "",
-    contact: "",
-    role: "viewer",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await axios.post("http://localhost:5000/users", user);
-      alert("Usuario registrado exitosamente.");
-    } catch (error) {
-      alert("Error al registrar usuario.");
-    }
-  };
+  const { user, handleChange, handleSubmit } = useRegisterLogic();
 
   return (
     <div className="register-container">
+      <ToastContainer />
       <h1>
         <span role="img" className="emoji">🐾</span> Registro <span role="img" className="emoji">🐶</span>
       </h1>
@@ -36,33 +18,32 @@ const Register: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <FaUser />
-          <input type="text" name="name" placeholder="Nombre" onChange={handleChange} required />
+          <input type="text" name="name" placeholder="Nombre" onChange={handleChange} value={user.name} required />
         </div>
 
         <div className="input-group">
           <FaEnvelope />
-          <input type="email" name="email" placeholder="Correo" onChange={handleChange} required />
+          <input type="email" name="email" placeholder="Correo" onChange={handleChange} value={user.email} required />
         </div>
 
         <div className="input-group">
           <FaLock />
-          <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Contraseña" onChange={handleChange} value={user.password} required />
         </div>
 
         <div className="input-group">
           <FaMapMarkerAlt />
-          <input type="text" name="address" placeholder="Dirección" onChange={handleChange} required />
+          <input type="text" name="address" placeholder="Dirección" onChange={handleChange} value={user.address} required />
         </div>
 
         <div className="input-group">
           <FaPhone />
-          <input type="text" name="contact" placeholder="Contacto" onChange={handleChange} required />
+          <input type="text" name="contact" placeholder="Contacto" onChange={handleChange} value={user.contact} required />
         </div>
 
         <div className="input-group">
           <FaUsers />
-          <select name="role" onChange={handleChange} required>
-            <option value="viewer">Tipo de Usuario</option>
+          <select name="role" onChange={handleChange} value={user.role} required>
             <option value="viewer">Viewer</option>
             <option value="admin">Admin</option>
           </select>
