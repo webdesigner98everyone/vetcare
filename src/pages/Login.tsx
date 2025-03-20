@@ -1,6 +1,8 @@
 import React from "react";
 import { useLoginLogic } from "../components/logic/LoginLogic";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Login.css";
 
 const Login: React.FC = () => {
@@ -8,6 +10,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="login-container">
+      <ToastContainer />
       <div className="login-card">
         <h1>🐾 Bienvenido 🐶</h1>
         <p>Ingresa tus credenciales para acceder</p>
