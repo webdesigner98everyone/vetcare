@@ -28,53 +28,19 @@
       "role": "viewer"
     },
     {
-      "id": "4e26",
-      "name": "Luis Forero",
-      "email": "luisfoguz1198@gmail.com",
-      "password": "elfore",
-      "role": "viewer"
-    },
-    {
-      "id": "81ab",
-      "name": "Brenda Loaiza",
+      "id": "4",
+      "name": "brenda loaiza",
       "email": "aleloa1993.bala@gmail.com",
       "password": "cucu",
-      "address": "Cr121a #46a-47 / Conjunto Ventura2",
+      "address": "cr121a #47a-46, unidad ventura 2, torre Q, Apto 201",
       "contact": "3184265820",
-      "role": "viewer"
-    },
-    {
-      "id": "100e",
-      "name": "Joseph Orlando",
-      "email": "joseph.orlando@gmail.com",
-      "password": "saiko",
-      "address": "Cra121a 47a-46",
-      "contact": "318 3011943",
-      "role": "viewer"
-    },
-    {
-      "id": "bd37",
-      "name": "Nayibe Catalina",
-      "email": "nayo.catalina@gmail.com",
-      "password": "princesa",
-      "address": "Calle 50-101-60",
-      "contact": "3184265822",
-      "role": "viewer"
-    },
-    {
-      "id": "6f5c",
-      "name": "Ingrid Marcela Forero Guzmán",
-      "email": "marfo.forero@hotmail.com",
-      "password": "1198",
-      "address": "Calle 41 101f-60",
-      "contact": "3177496987",
       "role": "viewer"
     }
   ],
   "pets": [
     {
       "id": "1",
-      "ownerId": "1",
+      "ownerId": "4",
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOJE8T-p6-AOxK7pi2SjgWmNXU29kdPqxJg&s",
       "name": "Rex",
       "breed": "Labrador Retriever",
