@@ -29,23 +29,23 @@
     },
     {
       "id": "4e26",
-      "name": "Luis forero",
+      "name": "Luis Forero",
       "email": "luisfoguz1198@gmail.com",
       "password": "elfore",
       "role": "viewer"
     },
     {
       "id": "81ab",
-      "name": "Brenda Loaiza ",
+      "name": "Brenda Loaiza",
       "email": "aleloa1993.bala@gmail.com",
       "password": "cucu",
-      "address": "cr121a #46a-47 / Conjunto Ventura2",
+      "address": "Cr121a #46a-47 / Conjunto Ventura2",
       "contact": "3184265820",
       "role": "viewer"
     },
     {
       "id": "100e",
-      "name": "joseph orlando",
+      "name": "Joseph Orlando",
       "email": "joseph.orlando@gmail.com",
       "password": "saiko",
       "address": "Cra121a 47a-46",
@@ -57,16 +57,16 @@
       "name": "Nayibe Catalina",
       "email": "nayo.catalina@gmail.com",
       "password": "princesa",
-      "address": "calle50-101-60",
+      "address": "Calle 50-101-60",
       "contact": "3184265822",
-      "role": "Tipo de Usuario"
+      "role": "viewer"
     },
     {
       "id": "6f5c",
-      "name": "Ingrid marcela forero Guzman",
+      "name": "Ingrid Marcela Forero Guzmán",
       "email": "marfo.forero@hotmail.com",
       "password": "1198",
-      "address": "calle41 101f-60",
+      "address": "Calle 41 101f-60",
       "contact": "3177496987",
       "role": "viewer"
     }
@@ -74,7 +74,7 @@
   "pets": [
     {
       "id": "1",
-      "ownerId": 1,
+      "ownerId": "1",
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOJE8T-p6-AOxK7pi2SjgWmNXU29kdPqxJg&s",
       "name": "Rex",
       "breed": "Labrador Retriever",
@@ -85,7 +85,7 @@
     },
     {
       "id": "2",
-      "ownerId": 2,
+      "ownerId": "2",
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW1IdS2CLigVKb84B4FrSWcVKt0wQufXDlxw&s",
       "name": "Mia",
       "breed": "Siames",
@@ -96,7 +96,7 @@
     },
     {
       "id": "3",
-      "ownerId": 2,
+      "ownerId": "2",
       "photo": "https://misanimales.com/wp-content/uploads/2021/07/golden-retriever-valla.jpg",
       "name": "Luna",
       "breed": "Golden Retriever",
@@ -106,8 +106,8 @@
       "microchip": "5678901234"
     },
     {
-      "id": "3",
-      "ownerId": 2,
+      "id": "4",
+      "ownerId": "2",
       "photo": "https://www.purina.es/sites/default/files/styles/ttt_image_510/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-09Pomeranian.jpg?itok=vAEj3qjQ",
       "name": "Loki",
       "breed": "Pomerania",
@@ -117,8 +117,8 @@
       "microchip": "N/a"
     },
     {
-      "id": "4",
-      "ownerId": 3,
+      "id": "5",
+      "ownerId": "3",
       "photo": "https://www.hola.com/horizon/landscape/a7e539c5282d-raza-de-perro-pastor-aleman-t.jpg?im=Resize=(1200)",
       "name": "Max",
       "breed": "Pastor Alemán",
@@ -126,6 +126,29 @@
       "gender": "Macho",
       "birthDate": "2022-01-30",
       "microchip": "6789012345"
+    }
+  ],
+  "medicalHistory": [
+    {
+      "id": "1",
+      "petId": "1",
+      "date": "2024-03-10",
+      "description": "Vacunación contra la rabia",
+      "veterinarian": "Dr. Juan Pérez"
+    },
+    {
+      "id": "2",
+      "petId": "1",
+      "date": "2024-05-15",
+      "description": "Control general y desparasitación",
+      "veterinarian": "Dra. María López"
+    },
+    {
+      "id": "3",
+      "petId": "2",
+      "date": "2024-02-20",
+      "description": "Tratamiento para infección urinaria",
+      "veterinarian": "Dr. Fernando Gómez"
     }
   ]
 }
