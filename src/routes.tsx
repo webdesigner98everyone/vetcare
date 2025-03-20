@@ -10,6 +10,7 @@ import PetProfile from "./pages/PetProfile";
 import PetFeeding from "./pages/feeding";
 import PetVaccines from "./pages/Vaccines";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import UpdateProfile from "./pages/UpdateProfile"; // Asegúrate de la importación correcta
 import AdminPanel from "./pages/AdminPanel";
 import ProtectedRoute from "./components/ProtectedRouteProps";
 
@@ -20,6 +21,7 @@ export default function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/privacidad" element={<PrivacyPolicy />} />
+      <Route path="/update-profile" element={<UpdateProfile />} />
       <Route path="/" element={<About />} />
 
       {/* Rutas protegidas */}

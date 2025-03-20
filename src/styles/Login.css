@@ -112,6 +112,23 @@ button:hover {
   transform: scale(1.05);
 }
 
+.register-text {
+  margin-top: 15px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.register-link {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .login-card {

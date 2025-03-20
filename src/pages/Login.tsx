@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useLoginLogic } from "../components/logic/LoginLogic";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
@@ -39,6 +40,10 @@ const Login: React.FC = () => {
           </div>
           <button type="submit" className="login-btn">Iniciar Sesión</button>
         </form>
+        {/* Enlace para registrarse */}
+        <p className="register-text">
+          ¿No tienes una cuenta? <Link to="/register" className="register-link">Regístrate aquí</Link>
+        </p>
       </div>
     </div>
   );
