@@ -32,7 +32,7 @@ export default function Home() {
         {!isLoggedIn && (
           <Link to="/register">
             <motion.div whileHover={{ scale: 1.1 }}>
-              <Button variant="primary" className="cta-button">
+              <Button variant="primary" className="cta-button" style={{ backgroundColor: "#2c7a7b", borderColor: "#2c7a7b" }}>
                 Regístrate Gratis
               </Button>
             </motion.div>

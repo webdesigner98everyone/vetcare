@@ -1,54 +1,135 @@
+/* Estilos generales del footer */
 .footer {
-  background: #1a1a1a;
+  background: #2c7a7b;
   color: #fff;
-  padding: 40px 0;
+  padding: 50px 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Contenido organizado en tres columnas */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo y redes sociales */
+.footer-logo {
   text-align: center;
 }
 
-.footer-section {
-  margin-bottom: 20px;
+.logo-img {
+  width: 120px;
+  margin-bottom: 10px;
 }
 
-.footer h5 {
+.social-icon {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  color: #ff9900;
+  transform: scale(1.2);
+}
+
+/* Información de la empresa */
+.footer-info h5 {
   font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.footer p, .footer-links li {
-  font-size: 0.9rem;
-  margin-bottom: 8px;
+.footer-info p {
+  margin: 3px 0;
+  font-size: 1rem;
   color: #fff;
 }
 
-.footer-links {
+/* Enlaces */
+.footer-links h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-links li a {
-  color: #ddd;
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
   text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
 }
 
-.footer-links li a:hover {
-  color: #ddd;
+.footer-links a:hover {
+  color: #ff9900;
+  transform: translateX(5px);
 }
 
-.social-icons a {
-  color: #ddd;
-  font-size: 1.5rem;
-  margin: 0 10px;
-  transition: color 0.3s ease;
+/* Separador */
+.footer-divider {
+  width: 80%;
+  margin: 20px auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.social-icons a:hover {
-  color: #ddd;
-}
-
+/* Texto de derechos reservados */
 .footer-text {
-  font-size: 0.8rem;
-  margin-top: 15px;
-  color: #bbb;
+  font-size: 0.9rem;
+  color: #fff;
 }
 
+/* Botón flotante de WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  color: #fff;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* Diseño Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icon {
+    font-size: 1.3rem;
+  }
+
+  .whatsapp-float {
+    font-size: 1.8rem;
+    width: 45px;
+    height: 45px;
+  }
+}

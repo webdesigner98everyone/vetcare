@@ -6,7 +6,7 @@ export default function NavigationBar() {
   const { user, handleLogout, handleScrollToTestimonials } = useNavbarLogic();
 
   return (
-    <Navbar bg="primary" variant="dark" expand="lg">
+    <Navbar style={{ backgroundColor: "#2c7a7b" }} variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">VetCare Manager🐶</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -18,10 +18,26 @@ export default function NavigationBar() {
 
                 {user.role === "viewer" && (
                   <>
-                    <Nav.Link as={Link} to="/PetProfile">Mi Mascota</Nav.Link>
-                    <Nav.Link as={Link} to="/history">Historial Clínico</Nav.Link>
-                    <Nav.Link as={Link} to="/vaccines">Mis Vacunas</Nav.Link>
-                    <Nav.Link as={Link} to="/feeding">Mi Alimentacion</Nav.Link>
+                    <Nav.Link as={Link} to="/PetProfile"
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                      Mi Mascota
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/history"
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                      Historial Clínico
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/vaccines"
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                      Mis Vacunas
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/feeding"
+                      onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                      onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                      Mi Alimentacion
+                    </Nav.Link>
                   </>
                 )}
 
@@ -36,13 +52,29 @@ export default function NavigationBar() {
               </>
             ) : (
               <>
-                <Nav.Link as={Link} to="/">Home</Nav.Link>
-                <Nav.Link as={Link} to="/About">Quienes Somos</Nav.Link>
-                <Nav.Link onClick={handleScrollToTestimonials} style={{ cursor: "pointer" }}>
+                <Nav.Link as={Link} to="/"
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                  Home</Nav.Link>
+                <Nav.Link as={Link} to="/About"
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                  Quienes Somos</Nav.Link>
+                <Nav.Link onClick={handleScrollToTestimonials} style={{ cursor: "pointer" }}
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
                   Testimonios
                 </Nav.Link>
-                <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
-                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                <Nav.Link as={Link} to="/contact"
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                  Contacto
+                </Nav.Link>
+                <Nav.Link as={Link} to="/login"
+                  onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.color = "#ff9900"}
+                  onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.color = "white"}>
+                  Login
+                </Nav.Link>
               </>
             )}
           </Nav>
