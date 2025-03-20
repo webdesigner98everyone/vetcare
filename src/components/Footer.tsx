@@ -33,8 +33,7 @@ const Footer: React.FC = () => {
               <li><Link to="/About">Quienes Somos</Link></li>
               <li><Link to="/">Servicios</Link></li>
               <li><Link to="/Contact">Contáctanos</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/politica">Política de Privacidad</Link></li>
+              <li><Link to="/privacidad">Política de Privacidad</Link></li>
             </ul>
           </Col>
         </Row>

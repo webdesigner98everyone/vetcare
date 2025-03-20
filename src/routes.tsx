@@ -9,6 +9,7 @@ import MedicalHistory from "./pages/MedicalHistory";
 import PetProfile from "./pages/PetProfile";
 import PetFeeding from "./pages/feeding";
 import PetVaccines from "./pages/Vaccines";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AdminPanel from "./pages/AdminPanel";
 import ProtectedRoute from "./components/ProtectedRouteProps";
 
@@ -18,7 +19,8 @@ export default function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/About" element={<About />} />
+      <Route path="/privacidad" element={<PrivacyPolicy />} />
+      <Route path="/" element={<About />} />
 
       {/* Rutas protegidas */}
       <Route path="/dashboard" element={
