@@ -34,10 +34,10 @@ export default function NavigationBar() {
                       onMouseLeave={(e) => (e.currentTarget.style.color = "white")}>
                       Vacunas
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/feeding"
+                    <Nav.Link as={Link} to="/PetQR"
                       onMouseEnter={(e) => (e.currentTarget.style.color = "#ff9900")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "white")}>
-                      Alimentación
+                      QR Mascota
                     </Nav.Link>
                   </>
                 )}

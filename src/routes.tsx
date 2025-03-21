@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import MedicalHistory from "./pages/MedicalHistory";
 import PetProfile from "./pages/PetProfile";
-import PetFeeding from "./pages/feeding";
+import PetQR from "./pages/PetQR";
 import PetVaccines from "./pages/PetVaccines";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import UpdateProfile from "./pages/UpdateProfile"; // Asegúrate de la importación correcta
@@ -37,9 +37,9 @@ export default function AppRoutes() {
         </ProtectedRoute>
       } />
 
-      <Route path="/Feeding" element={
+      <Route path="/PetQR" element={
         <ProtectedRoute allowedRoles={["admin", "viewer"]}>
-          <PetFeeding />
+          <PetQR />
         </ProtectedRoute>
       } />
       
