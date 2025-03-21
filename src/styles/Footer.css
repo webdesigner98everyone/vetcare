@@ -2,7 +2,7 @@
 .footer {
   background: #2c7a7b;
   color: #fff;
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
@@ -19,13 +19,13 @@
 /* Secciones del footer */
 .footer-section {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: auto;
 }
 
 /* Logo */
 .logo-img {
-  width: 180px;
-  margin-bottom: 10px;
+  width: 220px;
+  margin-bottom: auto;
 }
 
 /* Redes sociales */
@@ -34,7 +34,7 @@
 }
 
 .social-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #fff;
   margin: 0 10px;
   transition: color 0.3s ease, transform 0.2s ease-in-out;
@@ -47,14 +47,14 @@
 
 /* Información de la empresa */
 .footer-section h5 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .footer-section p {
   margin: 3px 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 /* Enlaces */
@@ -64,13 +64,13 @@
 }
 
 .footer-links li {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .footer-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: color 0.3s ease, transform 0.2s ease-in-out;
 }
 
@@ -90,6 +90,13 @@
 .footer-text {
   font-size: 0.9rem;
   color: #fff;
+}
+
+.footer-icon {
+  margin-right: 8px;
+  color: #ff9900;
+  font-size: 1rem;
+  vertical-align: middle;
 }
 
 /* Botón flotante de WhatsApp */

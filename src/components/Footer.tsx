@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import "../styles/Footer.css";
-import Logo from "../assets/Logo.jpg"; 
+import Logo from "../assets/Logo.jpg";
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
       <Container>
         <Row className="footer-content">
           {/* Logo e Instagram */}
-          <Col md={4} className="footer-section text-center">
+          <Col md={3} className="footer-section text-center">
             <img src={Logo} alt="Empresa Logo" className="logo-img" />
             <div className="social-icons">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
@@ -21,15 +21,15 @@ const Footer: React.FC = () => {
           </Col>
 
           {/* Información de la Empresa */}
-          <Col md={4} className="footer-section">
-            <h5>VETCARE MANAGER.</h5>
-            <p>Carrera 15A #10A - 3</p>
-            <p>Cali - Colombia</p>
-            <p>+57 313123745</p>
+          <Col md={3} className="footer-section">
+            <h5>VETCARE MANAGER.🐶</h5>
+            <p><FaMapMarkerAlt className="footer-icon" /> Carrera 121a #47-46 Cali - Colombia</p>
+            <p><FaPhoneAlt className="footer-icon" /> +57 313123745</p>
+            <p><FaEnvelope className="footer-icon" /> contacto@vetcare.com</p>
           </Col>
 
           {/* Enlaces de Navegación */}
-          <Col md={4} className="footer-section">
+          <Col md={3} className="footer-section">
             <h5>INFO</h5>
             <ul className="footer-links">
               <li><Link to="/About">Quienes Somos</Link></li>
