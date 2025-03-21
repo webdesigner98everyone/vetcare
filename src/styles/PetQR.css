@@ -6,17 +6,30 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    min-height: 60vh; /* Asegura que el contenedor tenga una altura mínima */
-    margin-bottom: 50px; /* Agrega espacio debajo del contenedor */
+    min-height: 60vh;
+    /* Asegura que el contenedor tenga una altura mínima */
+    margin-bottom: 50px;
+    /* Agrega espacio debajo del contenedor */
 }
 
 
 .qr-title {
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: bold;
     color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
+
+.section-descriptionQR {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
 .qr-card {
     background: #f9f9f9;

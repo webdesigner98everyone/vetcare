@@ -3,27 +3,44 @@
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
-  background: #ffffff; /* Fondo blanco */
+  background: #ffffff;
+  /* Fondo blanco */
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  color: #333; /* Color oscuro para mejor legibilidad */
-  min-height: 60vh; /* Asegura que el contenedor tenga una altura mínima */
-  margin-bottom: 50px; /* Agrega espacio debajo del contenedor */
+  color: #333;
+  /* Color oscuro para mejor legibilidad */
+  min-height: 60vh;
+  /* Asegura que el contenedor tenga una altura mínima */
+  margin-bottom: 50px;
+  /* Agrega espacio debajo del contenedor */
 }
 
 /* Estilo para el título "Historial Médico" */
 .medical-history-title {
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-  color: #444;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #333;
+  text-transform: uppercase;
+
+}
+
+.description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* Estilos de las tarjetas de historial médico */
 .medical-card {
-  background: #f9f9f9; /* Fondo claro */
+  background: #f9f9f9;
+  /* Fondo claro */
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
@@ -38,7 +55,8 @@
 
 /* Estilos de los subtítulos */
 .medical-card h3 {
-  color: #ff7b00; /* Color naranja para destacar */
+  color: #ff7b00;
+  /* Color naranja para destacar */
   margin-bottom: 10px;
   font-size: 20px;
 }
@@ -66,11 +84,13 @@
   padding: 12px;
   border-radius: 5px;
   margin-bottom: 10px;
-  border-left: 4px solid #ff7b00; /* Resaltado lateral */
+  border-left: 4px solid #ff7b00;
+  /* Resaltado lateral */
 }
 
 .medical-list li strong {
-  color: #ff7b00; /* Naranja para destacar */
+  color: #ff7b00;
+  /* Naranja para destacar */
 }
 
 /* Mensaje de "No hay historial médico disponible" */
@@ -91,4 +111,3 @@
   color: #ff7b00;
   margin-bottom: 10px;
 }
-

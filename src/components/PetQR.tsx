@@ -10,6 +10,9 @@ const PetQR: React.FC = () => {
   return (
     <div className="qr-container">
       <h2 className="qr-title">Código QR de tus Mascotas</h2>
+      <p className="section-descriptionQR">
+        Aquí puedes visualizar por medio del escaneo del QR la informacion básica de tus mascotas registradas en el sistema.
+      </p>
       {user && pets.length > 0 ? (
         pets.map((pet) => (
           <div key={pet.id} className="qr-card">

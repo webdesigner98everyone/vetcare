@@ -12,7 +12,9 @@ const MedicalHistory: React.FC = () => {
   return (
     <div className="medical-history-container">
       <h2 className="medical-history-title">Historial Médico</h2>
-      
+      <p className="description">
+        Aquí puedes visualizar el historial medico de tus mascotas registradas en el sistema y asi poder estar atento de sus controles.
+      </p>
       {medicalHistory.length === 0 ? (
         <div className="no-medical-history">
           <FaPaw className="no-history-icon" />

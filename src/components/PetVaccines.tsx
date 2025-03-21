@@ -64,7 +64,10 @@ const VaccinationList: React.FC = () => {
 
   return (
     <div className="vaccination-container">
-      <h2 className="title">Historial de Vacunas</h2>
+      <h2 className="title">Bitácora de Vacunación</h2>
+      <p className="description-vaccines">
+        Aquí puedes visualizar la bitacora de vacunación de tus mascotas registradas en el sistema y asi poder estar atento de sus proximas dosis.
+      </p>
       {content}
     </div>
   );

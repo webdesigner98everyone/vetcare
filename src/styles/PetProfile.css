@@ -4,13 +4,13 @@
   flex-direction: column;
   justify-content: center; /* Centra el contenido */
   align-items: center;
-  min-height: 100vh; /* Hace que ocupe toda la pantalla */
+  min-height: 50vh; /* Hace que ocupe toda la pantalla */
   padding: 20px; /* Agrega un poco de espacio alrededor */
 }
 
 /* Contenedor principal con mejor tamaño */
 .profile-container {
-  max-width: 1200px; /* Ajuste más equilibrado */
+  max-width: 900px; /* Ajuste más equilibrado */
   width: 90%; /* Más flexible en diferentes pantallas */
   padding: 20px;
   text-align: center;
