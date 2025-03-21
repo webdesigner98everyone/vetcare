@@ -52,6 +52,10 @@ const PetProfile: React.FC = () => {
     <div className="profile-wrapper"> {/* Contenedor principal con flexbox */}
       <div className="profile-container">
         <h2>Información de tu mascota</h2>
+        <p className="section-description">
+          Aquí puedes visualizar el perfil de tus mascotas registradas en el sistema. 
+          Haz clic en una de ellas para ver más detalles.
+        </p>
         {error && <Alert variant="danger">{error}</Alert>}
 
         {loading ? (
