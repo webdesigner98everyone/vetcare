@@ -1,0 +1,83 @@
+.vaccination-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+}
+
+.pet-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f47c20; /* Naranja vibrante */
+  text-align: center;
+}
+
+.pet-photo {
+  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 10px auto;
+  border: 2px solid #f47c20;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+}
+
+.vaccination-history {
+  background: #fff;
+  border-left: 4px solid #f47c20;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.vaccination-item {
+  background: #fef3e7;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.vaccination-item p {
+  margin: 5px 0;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #f47c20;
+}
+
+.error-text {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.loading-text, .no-data-text {
+  text-align: center;
+  color: #777;
+}

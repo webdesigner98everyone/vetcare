@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import MedicalHistory from "./pages/MedicalHistory";
 import PetProfile from "./pages/PetProfile";
 import PetFeeding from "./pages/feeding";
-import PetVaccines from "./pages/Vaccines";
+import PetVaccines from "./pages/PetVaccines";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import UpdateProfile from "./pages/UpdateProfile"; // Asegúrate de la importación correcta
 import AdminPanel from "./pages/AdminPanel";
@@ -42,7 +42,7 @@ export default function AppRoutes() {
           <PetFeeding />
         </ProtectedRoute>
       } />
-
+      
       <Route path="/Vaccines" element={
         <ProtectedRoute allowedRoles={["admin", "viewer"]}>
           <PetVaccines />

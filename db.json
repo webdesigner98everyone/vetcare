@@ -35,6 +35,15 @@
       "address": "cr121a #47a-46, unidad ventura 2, torre Q, Apto 201",
       "contact": "3184265820",
       "role": "viewer"
+    },
+    {
+      "id": "5",
+      "name": "marcela forero",
+      "email": "marfo.forero@gmail.com",
+      "password": "ruffo",
+      "address": "calle50-101-60",
+      "contact": "3012569887",
+      "role": "viewer"
     }
   ],
   "pets": [
@@ -114,6 +123,32 @@
       "petId": "2",
       "date": "2024-02-20",
       "description": "Tratamiento para infección urinaria",
+      "veterinarian": "Dr. Fernando Gómez"
+    }
+  ],
+  "vaccinations": [
+    {
+      "id": "1",
+      "petId": "1",
+      "vaccineName": "Rabia",
+      "dateAdministered": "2024-03-10",
+      "nextDose": "2025-03-10",
+      "veterinarian": "Dr. Juan Pérez"
+    },
+    {
+      "id": "2",
+      "petId": "1",
+      "vaccineName": "Moquillo",
+      "dateAdministered": "2024-06-15",
+      "nextDose": "2025-06-15",
+      "veterinarian": "Dra. María López"
+    },
+    {
+      "id": "3",
+      "petId": "2",
+      "vaccineName": "Leucemia Felina",
+      "dateAdministered": "2024-02-20",
+      "nextDose": "2025-02-20",
       "veterinarian": "Dr. Fernando Gómez"
     }
   ]
