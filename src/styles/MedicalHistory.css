@@ -7,6 +7,8 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: #333; /* Color oscuro para mejor legibilidad */
+  min-height: 60vh; /* Asegura que el contenedor tenga una altura mínima */
+  margin-bottom: 50px; /* Agrega espacio debajo del contenedor */
 }
 
 /* Estilo para el título "Historial Médico" */

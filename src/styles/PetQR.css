@@ -6,7 +6,10 @@
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
+    min-height: 60vh; /* Asegura que el contenedor tenga una altura mínima */
+    margin-bottom: 50px; /* Agrega espacio debajo del contenedor */
 }
+
 
 .qr-title {
     font-size: 24px;
