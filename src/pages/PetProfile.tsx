@@ -76,7 +76,7 @@ const PetProfile: React.FC = () => {
           </div>
         ) : (
           <Alert variant="warning">
-            No tienes mascotas registradas. Contacta con el administrador.
+            No tienes mascotas registradas. Contactate con el administrador para iniciar el seguimiento para tus peluditos.
           </Alert>
         )}
 

@@ -1,5 +1,6 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { usePetVaccinations } from "../components/logic/usePetVaccinations";
+import { FaSyringe } from "react-icons/fa";
 import "../styles/PetVaccines.css";
 
 const VaccinationList: React.FC = () => {
@@ -27,7 +28,12 @@ const VaccinationList: React.FC = () => {
     if (!userId) return <p className="error-text">Usuario no identificado. Por favor, inicia sesión.</p>;
     if (loading) return <p className="loading-text">Cargando información...</p>;
     if (error) return <p className="error-text">{error}</p>;
-    if (pets.length === 0) return <p className="no-data-text">No tienes mascotas registradas.</p>;
+    if (pets.length === 0) return (
+      <div className="no-vaccination-history">
+        <FaSyringe className="no-history-icon" />
+        <p>No hay mascota registrada con este usuario para mostrar historico de Vacunas.</p>
+      </div>
+    );
 
     return pets.map((pet) => (
       <div key={pet.id} className="card">

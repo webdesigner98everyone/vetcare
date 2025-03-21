@@ -1,18 +1,23 @@
 import React from "react";
 import { useMedicalHistory } from "../components/logic/medicalHistoryLogic";
-import "../styles/MedicalHistory.css"; // Importando estilos
+import { FaPaw } from "react-icons/fa";
+import "../styles/MedicalHistory.css";
 
 const MedicalHistory: React.FC = () => {
   const { medicalHistory, loading, error } = useMedicalHistory();
 
-  if (loading) return <p>Cargando historial médico...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className="loading-message">Cargando historial médico...</p>;
+  if (error) return <p className="error-message">{error}</p>;
 
   return (
     <div className="medical-history-container">
       <h2 className="medical-history-title">Historial Médico</h2>
+      
       {medicalHistory.length === 0 ? (
-        <p>No hay historial médico disponible.</p>
+        <div className="no-medical-history">
+          <FaPaw className="no-history-icon" />
+          <p>No hay mascota registrada con este usuario para mostrar historial médico.</p>
+        </div>
       ) : (
         medicalHistory.map(({ pet, records }) => (
           <div key={pet.id} className="medical-card">

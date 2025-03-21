@@ -70,3 +70,23 @@
 .medical-list li strong {
   color: #ff7b00; /* Naranja para destacar */
 }
+
+/* Mensaje de "No hay historial médico disponible" */
+.no-medical-history {
+  text-align: center;
+  background: #fdf2e9;
+  padding: 20px;
+  border-radius: 10px;
+  color: #d35400;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.no-history-icon {
+  font-size: 40px;
+  color: #ff7b00;
+  margin-bottom: 10px;
+}
+

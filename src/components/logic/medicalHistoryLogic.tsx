@@ -40,12 +40,6 @@ export const useMedicalHistory = () => {
         const petsData: Pet[] = await petsResponse.json();
         const userPets = petsData.filter((pet) => pet.ownerId === userId);
 
-        if (userPets.length === 0) {
-          setError("No hay mascotas registradas para este usuario.");
-          setLoading(false);
-          return;
-        }
-
         // Obtener el historial médico
         const medicalHistoryResponse = await fetch("http://localhost:5000/medicalHistory");
         const medicalHistoryData: MedicalRecord[] = await medicalHistoryResponse.json();
