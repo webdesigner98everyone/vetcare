@@ -1,0 +1,67 @@
+.qr-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.qr-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.qr-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.qr-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.qr-card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f47c20;
+    /* Naranja vibrante */
+    margin-bottom: 10px;
+}
+
+.qr-code {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Mensaje de "No hay QR disponible" */
+.no-qr-history {
+    text-align: center;
+    background: #fdf2e9;
+    padding: 20px;
+    border-radius: 10px;
+    color: #d35400;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.no-qr-icon {
+    font-size: 40px;
+    color: #ff7b00;
+    margin-bottom: 10px;
+}
