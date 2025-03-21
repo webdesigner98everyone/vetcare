@@ -1,8 +1,60 @@
+/* Contenedor Principal */
 .dashboard-container {
-    min-height: 100vh; /* Hace que el Dashboard ocupe toda la pantalla */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+    min-height: 100vh;
+    background: linear-gradient(to right, #0F172A, #1E293B); /* Fondo oscuro */
+    color: white;
+}
+
+/* Contenido Principal */
+.dashboard-content {
+    flex-grow: 1;
+    overflow: auto; /* Evita que el contenido se corte */
+    padding: 10px;
+}
+
+/* Estilos del Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 900px; /* Máximo tamaño para que no se vea tan separado */
+    margin: 0 auto;
+}
+
+/* Tarjetas */
+.card-dashboard {
+    background: #2c7a7b;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-dashboard:hover {
+    transform: scale(1.05);
+}
+
+.card-dashboard h2 {
+    font-size: 1rem;
+    color: #f8fafc;
+}
+
+.card-dashboard p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff9900;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+    .dashboard-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
