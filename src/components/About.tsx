@@ -1,6 +1,6 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { useAboutLogic } from "../components/logic/AboutLogic";
+import { useAboutLogic } from "./logic/AboutLogic";
 import "../styles/About.css";
 
 export default function About() {

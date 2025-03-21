@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { FaPaw, FaSyringe, FaStethoscope, FaUtensils, FaQuoteLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useHomeLogic } from "../components/logic/HomeLogic";
+import { useHomeLogic } from "./logic/HomeLogic";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Home.css";

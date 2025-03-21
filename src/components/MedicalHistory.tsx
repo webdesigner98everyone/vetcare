@@ -1,5 +1,5 @@
 import React from "react";
-import { useMedicalHistory } from "../components/logic/medicalHistoryLogic";
+import { useMedicalHistory } from "./logic/medicalHistoryLogic";
 import { FaPaw } from "react-icons/fa";
 import "../styles/MedicalHistory.css";
 

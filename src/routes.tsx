@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Login from "./pages/Login";
-import Contact from "./pages/Contact";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import MedicalHistory from "./pages/MedicalHistory";
-import PetProfile from "./pages/PetProfile";
-import PetQR from "./pages/PetQR";
-import PetVaccines from "./pages/PetVaccines";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import UpdateProfile from "./pages/UpdateProfile"; // Asegúrate de la importación correcta
-import AdminPanel from "./pages/AdminPanel";
+import Home from "./components/Home";
+import About from "./components/About";
+import Login from "./components/Login";
+import Contact from "./components/Contact";
+import Register from "./components/Register";
+import Dashboard from "./components/Dashboard";
+import MedicalHistory from "./components/MedicalHistory";
+import PetProfile from "./components/PetProfile";
+import PetQR from "./components/PetQR";
+import PetVaccines from "./components/PetVaccines";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import UpdateProfile from "./components/UpdateProfile";
+import AdminPanel from "./components/AdminPanel";
 import ProtectedRoute from "./components/ProtectedRouteProps";
 
 export default function AppRoutes() {

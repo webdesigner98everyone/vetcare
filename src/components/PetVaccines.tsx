@@ -1,5 +1,5 @@
 import React, { useMemo, useEffect, useState } from "react";
-import { usePetVaccinations } from "../components/logic/usePetVaccinations";
+import { usePetVaccinations } from "./logic/usePetVaccinations";
 import { FaSyringe } from "react-icons/fa";
 import "../styles/PetVaccines.css";
 

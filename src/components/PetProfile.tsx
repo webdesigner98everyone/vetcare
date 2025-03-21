@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPetsByOwnerId } from "../components/logic/petService";
+import { getPetsByOwnerId } from "./logic/petService";
 import { Card, Alert, Spinner, Modal, Button } from "react-bootstrap";
 import "../styles/PetProfile.css";
 
