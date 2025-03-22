@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Usuarios from "./Usuarios";
+import PetsTable from "./PetsTable"; // Importa PetsTable
+
 import "../styles/dashboard.css";
 
 const Dashboard: React.FC = () => {
@@ -57,6 +59,8 @@ const Dashboard: React.FC = () => {
         )}
 
         {activeSection === "usuarios" && <Usuarios />}
+        {activeSection === "mascotas" && <PetsTable />} {/* Agregar PetsTable */}
+
       </div>
     </div>
   );

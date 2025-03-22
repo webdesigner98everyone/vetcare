@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
 import { FaUser, FaDog, FaSyringe, FaHistory, FaCog, FaSignOutAlt, FaHome, FaBars } from "react-icons/fa";
 import "../styles/Sidebar.css";
 
+
 // Definir las props correctamente
 interface SidebarProps {
     setActiveSection: React.Dispatch<React.SetStateAction<string>>;
@@ -69,10 +70,8 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
                             <FaUser /> <span>Usuarios</span>
                         </li>
 
-                        <li>
-                            <Link to="/dashboard/mascotas" onClick={() => setIsOpen(false)}>
-                                <FaDog /> <span>Mascotas</span>
-                            </Link>
+                        <li onClick={() => { setActiveSection("mascotas"); setIsOpen(false); }}>
+                            <FaDog /> <span>Mascotas</span>
                         </li>
 
                         <li>

@@ -1,0 +1,152 @@
+/* Estilos generales */
+.containerpets {
+    max-width: 100%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    overflow-x: auto;
+    color: #333;
+}
+
+/* Estilos del título */
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.Seccionh2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+    text-align: center;
+}
+
+/* Barra de búsqueda */
+.search-containerpets {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.ssearch-containerpets input {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.search-containerpets input:focus {
+    border-color: #333;
+}
+
+/* Botón agregar */
+.add-button {
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+.add-button:hover {
+    background: #333;
+}
+
+/* Estilos de la tabla */
+.table-containerpets {
+    overflow-x: auto;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+thead {
+    background: #333;
+    color: #ffffff;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+/* Botones de acción */
+.action-buttons button {
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    margin: 3px;
+    transition: 0.3s;
+}
+
+.action-buttons .edit-btn {
+    background: #ffc107;
+    color: white;
+}
+
+.action-buttons .edit-btn:hover {
+    background: #e0a800;
+}
+
+.action-buttons .delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.action-buttons .delete-btn:hover {
+    background: #c82333;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .containerpets {
+        padding: 15px;
+    }
+
+    .search-containerpets input {
+        width: 80%;
+    }
+
+    th,
+    td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    th,
+    td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .action-buttons button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}

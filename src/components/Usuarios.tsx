@@ -77,7 +77,7 @@ const Usuarios: React.FC = () => {
 
     return (
         <div className="usuarios-container">
-            <h4 className="Seccionh4">Bitácora De Usuarios</h4>
+            <h4 className="Seccionh4">Gestión De Usuarios</h4>
 
             <input
                 type="text"
