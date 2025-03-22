@@ -1,32 +1,92 @@
-/* Contenedor Principal */
-.dashboard-container {
+/* Asegurar que el contenedor ocupa todo el espacio */
+.sidebar-container {
     display: flex;
     min-height: 100vh;
-    background: linear-gradient(to right, #0F172A, #1E293B); /* Fondo oscuro */
+    background: linear-gradient(to right, #0F172A, #1E293B);
     color: white;
+    overflow: hidden;
 }
 
-/* Contenido Principal */
+/* Ajuste del Sidebar */
+.sidebar {
+    width: 260px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #1E293B;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar.open {
+    width: 260px;
+}
+
+/* Ajuste del contenido para ocupar el espacio restante */
 .dashboard-content {
     flex-grow: 1;
-    overflow: auto; /* Evita que el contenido se corte */
-    padding: 10px;
+    overflow: auto;
+    padding: 20px;
+    margin-left: 260px;
+    transition: margin-left 0.3s ease-in-out;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* Estilos del Grid */
+/* RESPONSIVIDAD */
+@media (max-width: 1024px) {
+    .dashboard-content {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-content {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content {
+        margin-left: 0;
+        padding: 15px;
+        min-height: 100vh;
+        /* Asegura que tome toda la pantalla */
+    }
+}
+
+/* Ajuste del grid */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
     width: 100%;
-    max-width: 900px; /* Máximo tamaño para que no se vea tan separado */
+    max-width: 900px;
     margin: 0 auto;
 }
 
 /* Tarjetas */
 .card-dashboard {
     background: #2c7a7b;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s ease-in-out;
@@ -46,15 +106,4 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #ff9900;
-}
-
-/* RESPONSIVIDAD */
-@media (max-width: 768px) {
-    .dashboard-content {
-        margin-left: 0;
-        padding: 15px;
-    }
-    .grid {
-        grid-template-columns: 1fr;
-    }
 }

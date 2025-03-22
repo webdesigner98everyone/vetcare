@@ -5,7 +5,7 @@ import "../styles/dashboard.css";
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="dashboard-container">
+    <div className="sidebar-container"> {/* Ahora Sidebar y Dashboard comparten el mismo contenedor */}
       <Sidebar />
       <div className="dashboard-content">
         <h1 className="text-3xl font-bold text-white mb-4">
