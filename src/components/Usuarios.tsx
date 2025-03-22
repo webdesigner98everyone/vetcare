@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/usuarios.css";
+import EditarUsuario from "./UpdateUser";
 
-// Definimos la interfaz para un usuario
 interface User {
     id: string;
     name: string;
@@ -14,11 +14,17 @@ interface User {
 const Usuarios: React.FC = () => {
     const [usuarios, setUsuarios] = useState<User[]>([]);
     const [search, setSearch] = useState("");
+    const [usuarioEditando, setUsuarioEditando] = useState<User | null>(null);
+    const [mostrarModal, setMostrarModal] = useState(false); // Estado para controlar la visibilidad del modal
 
     useEffect(() => {
+        console.log("Cargando usuarios...");
         fetch("http://localhost:5000/users")
             .then((response) => response.json())
-            .then((data: User[]) => setUsuarios(data))
+            .then((data: User[]) => {
+                console.log("Usuarios recibidos:", data);
+                setUsuarios(data);
+            })
             .catch((error) => console.error("Error al obtener usuarios:", error));
     }, []);
 
@@ -26,18 +32,29 @@ const Usuarios: React.FC = () => {
         if (!window.confirm("¿Estás seguro de eliminar este usuario?")) return;
 
         try {
-            await fetch(`http://localhost:5000/users/${id}`, {
-                method: "DELETE",
-            });
+            await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
             setUsuarios(usuarios.filter((user) => user.id !== id));
         } catch (error) {
             console.error("Error al eliminar usuario:", error);
         }
     };
 
+    const handleEdit = (user: User) => {
+        console.log("Editando usuario:", user);
+        setUsuarioEditando(user);
+        setMostrarModal(true);
+        console.log("Estado mostrarModal:", true); // <-- Verificamos si el estado se actualiza
+    };
+
+
+    const handleSave = (updatedUser: User) => {
+        setUsuarios(usuarios.map((user) => (user.id === updatedUser.id ? updatedUser : user)));
+        setMostrarModal(false); // Cierra el modal después de guardar
+    };
+
     return (
         <div className="usuarios-container">
-            <h4 className="Seccionh4">Bitacora De Usuarios</h4>
+            <h4 className="Seccionh4">Bitácora De Usuarios</h4>
 
             <input
                 type="text"
@@ -73,7 +90,7 @@ const Usuarios: React.FC = () => {
                                 <td>{user.address}</td>
                                 <td>{user.contact}</td>
                                 <td>
-                                    <button className="edit-btn">Editar</button>
+                                    <button className="edit-btn" onClick={() => handleEdit(user)}>Editar</button>
                                     <button className="delete-btn" onClick={() => handleDelete(user.id)}>
                                         Eliminar
                                     </button>
@@ -84,6 +101,16 @@ const Usuarios: React.FC = () => {
             </table>
 
             <button className="add-btn">Agregar Usuario</button>
+
+            {/* Modal para editar usuario */}
+            {mostrarModal && usuarioEditando ? (
+                <EditarUsuario
+                    usuario={usuarioEditando}
+                    onClose={() => setMostrarModal(false)}
+                    onSave={handleSave}
+                />
+            ) : null}
+
         </div>
     );
 };

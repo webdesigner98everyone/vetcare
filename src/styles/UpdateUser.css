@@ -1,0 +1,103 @@
+/* Fondo del modal */
+.modal-usuarios {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Contenedor del contenido del modal */
+.modal-contentUsuarios {
+    position: absolute; /* Centrado absoluto */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ajusta la posición */
+    
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Inputs estilizados */
+.modal-contentUsuarios input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+/* Efecto al seleccionar input */
+.modal-contentUsuarios input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Contenedor de botones */
+.modal-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilos generales de botones */
+.modal-buttons button {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+/* Botón de guardar */
+.modal-buttons button:first-child {
+    background: #28a745;
+    color: white;
+}
+
+.modal-buttons button:first-child:hover {
+    background: #218838;
+}
+
+/* Botón de cancelar */
+.modal-buttons button:last-child {
+    background: #dc3545;
+    color: white;
+}
+
+.modal-buttons button:last-child:hover {
+    background: #c82333;
+}
+
+/* Diseño responsivo */
+@media (max-width: 500px) {
+    .modal-contentUsuarios {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .modal-contentUsuarios input {
+        font-size: 14px;
+    }
+
+    .modal-buttons button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

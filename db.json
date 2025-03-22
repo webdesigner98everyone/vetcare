@@ -2,8 +2,8 @@
   "users": [
     {
       "id": "1",
-      "name": "Carlos Gómez Trujillo",
-      "address": "Calle 123, Medellín, Colombia",
+      "name": "Carlos Gómez ",
+      "address": "Calle 123, cali, Colombia",
       "contact": "300 123 4567",
       "email": "carlos.gomez@email.com",
       "password": "123456",
@@ -11,7 +11,7 @@
     },
     {
       "id": "2",
-      "name": "María Rodríguez",
+      "name": "María Rodríguez Forero",
       "address": "Carrera 45, Bogotá, Colombia",
       "contact": "301 987 6545",
       "email": "maria.rodriguez@email.com",
