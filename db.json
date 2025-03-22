@@ -22,7 +22,7 @@
       "id": "3",
       "name": "Luis Fernández",
       "address": "Avenida 10, Cali, Colombia",
-      "contact": "+57 302 111 2233",
+      "contact": "302 111 2233",
       "email": "luis.fernandez@email.com",
       "password": "qwerty",
       "role": "viewer"
@@ -44,6 +44,24 @@
       "role": "viewer",
       "address": "cr121a #47a-46",
       "contact": "3163449117"
+    },
+    {
+      "id": "6",
+      "name": "Nayibe Catalina",
+      "email": "nayo.catalina@gmail.com",
+      "password": "milan",
+      "role": "viewer",
+      "address": "calle2bis - 74-91 Barrio Colinas del sur",
+      "contact": "301 987 6545"
+    },
+    {
+      "id": "7",
+      "name": "priscila arenas",
+      "email": "priscila.arenas@hotmail.com",
+      "password": "milan",
+      "role": "viewer",
+      "address": "calle2bis - 74-91 Barrio Colinas del sur",
+      "contact": "3177496987"
     }
   ],
   "pets": [

@@ -5,7 +5,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    background: rgba(0, 0, 0, 0.5);
+    /* Fondo semi-transparente */
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -50,7 +51,8 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    margin: 8px 0; /* Espacio entre botones */
+    margin: 8px 0;
+    /* Espacio entre botones */
 }
 
 /* Estilo para el botón "Guardar" */
@@ -90,28 +92,10 @@ select {
 
 /* Estilo especial para el campo "role" */
 select {
-    appearance: none; /* Elimina los estilos predeterminados del select en algunos navegadores */
+    appearance: none;
+    /* Elimina los estilos predeterminados del select en algunos navegadores */
     background-color: #f9f9f9;
     cursor: pointer;
-}
-/* Agregar esto a tu archivo AddUsers.css o un archivo separado */
-.Toastify__toast--success {
-    background-color: #28a745; /* Color de fondo para éxito */
-    color: white;
-}
-
-.Toastify__toast--error {
-    background-color: #dc3545; /* Color de fondo para error */
-    color: white;
-}
-
-.Toastify__toast {
-    font-size: 16px; /* Ajustar el tamaño de la fuente */
-    border-radius: 8px;
-}
-
-.Toastify__toast-container {
-    z-index: 9999; /* Asegura que las notificaciones estén encima de otros elementos */
 }
 
 /* Asegurando que los botones sean responsivos y se vean bien en dispositivos pequeños */
@@ -125,7 +109,9 @@ select {
     .modal-containeruser button {
         width: 100%;
         padding: 10px;
-        font-size: 14px; /* Tamaño de fuente más pequeño para móviles */
-        margin: 10px 0; /* Mayor espacio entre los botones */
+        font-size: 14px;
+        /* Tamaño de fuente más pequeño para móviles */
+        margin: 10px 0;
+        /* Mayor espacio entre los botones */
     }
 }
