@@ -55,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
 
                 <nav>
                     <ul>
-                        <li onClick={() => setActiveSection("dashboard")}>
+                        <li onClick={() => { setActiveSection("dashboard"); setIsOpen(false); }}>
                             <FaHome /> <span>Dashboard</span>
                         </li>
 
@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
                             </Link>
                         </li>
 
-                        <li onClick={() => setActiveSection("usuarios")}>
+                        <li onClick={() => { setActiveSection("usuarios"); setIsOpen(false); }}>
                             <FaUser /> <span>Usuarios</span>
                         </li>
 
@@ -92,6 +92,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
                                 <FaCog /> <span>Configuración</span>
                             </Link>
                         </li>
+
                     </ul>
                 </nav>
 
