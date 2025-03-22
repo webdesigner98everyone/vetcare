@@ -5,6 +5,7 @@ interface User {
     id: string;
     name: string;
     email: string;
+    password: string;
     role: string;
     address: string;
     contact: string;
@@ -59,6 +60,9 @@ const EditarUsuario: React.FC<EditarUsuarioProps> = ({ usuario, onClose, onSave 
 
                     <label>Email:</label>
                     <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+
+                    <label>Password:</label>
+                    <input type="password" name="password" value={formData.password} onChange={handleChange} required />
 
                     <label>Rol:</label>
                     <input type="text" name="role" value={formData.role} onChange={handleChange} required />

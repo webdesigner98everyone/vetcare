@@ -35,6 +35,15 @@
       "address": "cr121a #47a-46, unidad ventura 2, torre Q, Apto 201",
       "contact": "3184265820",
       "role": "viewer"
+    },
+    {
+      "id": "5",
+      "name": "luis alberto forero guzman",
+      "email": "luis.forero@carvajal.com",
+      "password": "loki",
+      "role": "viewer",
+      "address": "cr121a #47a-46",
+      "contact": "3163449117"
     }
   ],
   "pets": [

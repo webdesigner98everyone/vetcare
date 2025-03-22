@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/usuarios.css";
 import EditarUsuario from "./UpdateUser";
+import AgregarUsuario from "./AddUser";
 
 interface User {
     id: string;
     name: string;
     email: string;
+    password: string;
     role: string;
     address: string;
     contact: string;
@@ -16,6 +18,8 @@ const Usuarios: React.FC = () => {
     const [search, setSearch] = useState("");
     const [usuarioEditando, setUsuarioEditando] = useState<User | null>(null);
     const [mostrarModal, setMostrarModal] = useState(false); // Estado para controlar la visibilidad del modal
+    const [mostrarAgregarModal, setMostrarAgregarModal] = useState(false);// Estado para añadir nuevo usuario
+
 
     useEffect(() => {
         console.log("Cargando usuarios...");
@@ -51,6 +55,25 @@ const Usuarios: React.FC = () => {
         setUsuarios(usuarios.map((user) => (user.id === updatedUser.id ? updatedUser : user)));
         setMostrarModal(false); // Cierra el modal después de guardar
     };
+
+    const handleAddUser = async (newUser: Omit<User, "id">) => {
+        try {
+            const response = await fetch("http://localhost:5000/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newUser),
+            });
+
+            if (!response.ok) throw new Error("Error al agregar usuario");
+
+            const addedUser = await response.json();
+            setUsuarios([...usuarios, addedUser]); // Actualiza la lista con el nuevo usuario
+            setMostrarAgregarModal(false); // Cierra el modal después de agregar
+        } catch (error) {
+            console.error("Error al agregar usuario:", error);
+        }
+    };
+
 
     return (
         <div className="usuarios-container">
@@ -100,7 +123,9 @@ const Usuarios: React.FC = () => {
                 </tbody>
             </table>
 
-            <button className="add-btn">Agregar Usuario</button>
+            <button className="add-btn" onClick={() => setMostrarAgregarModal(true)}>
+                Agregar Usuario
+            </button>
 
             {/* Modal para editar usuario */}
             {mostrarModal && usuarioEditando ? (
@@ -110,6 +135,14 @@ const Usuarios: React.FC = () => {
                     onSave={handleSave}
                 />
             ) : null}
+
+            {mostrarAgregarModal && (
+                <AgregarUsuario
+                    onClose={() => setMostrarAgregarModal(false)}
+                    onAdd={handleAddUser}
+                    existingUsers={usuarios} // Aquí pasas el array de usuarios
+                />
+            )}
 
         </div>
     );
