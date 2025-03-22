@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
-import {
-    FaUser,
-    FaDog,
-    FaSyringe,
-    FaHistory,
-    FaCog,
-    FaSignOutAlt,
-    FaHome,
-    FaBars,
-} from "react-icons/fa";
+import { FaUser, FaDog, FaSyringe, FaHistory, FaCog, FaSignOutAlt, FaHome, FaBars } from "react-icons/fa";
 import "../styles/Sidebar.css";
 
-const Sidebar = () => {
+// Definir las props correctamente
+interface SidebarProps {
+    setActiveSection: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [username, setUsername] = useState("Usuario");
     const navigate = useNavigate(); // Hook para redirigir
@@ -59,36 +55,38 @@ const Sidebar = () => {
 
                 <nav>
                     <ul>
+                        <li onClick={() => setActiveSection("dashboard")}>
+                            <FaHome /> <span>Dashboard</span>
+                        </li>
+
                         <li>
                             <Link to="/update-profile" onClick={() => setIsOpen(false)}>
                                 <FaUser /> <span>Mi Perfil</span>
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/dashboard" onClick={() => setIsOpen(false)}>
-                                <FaHome /> <span>Dashboard</span>
-                            </Link>
+
+                        <li onClick={() => setActiveSection("usuarios")}>
+                            <FaUser /> <span>Usuarios</span>
                         </li>
-                        <li>
-                            <Link to="/dashboard/usuarios" onClick={() => setIsOpen(false)}>
-                                <FaUser /> <span>Usuarios</span>
-                            </Link>
-                        </li>
+
                         <li>
                             <Link to="/dashboard/mascotas" onClick={() => setIsOpen(false)}>
                                 <FaDog /> <span>Mascotas</span>
                             </Link>
                         </li>
+
                         <li>
                             <Link to="/dashboard/vacunas" onClick={() => setIsOpen(false)}>
                                 <FaSyringe /> <span>Vacunas</span>
                             </Link>
                         </li>
+
                         <li>
                             <Link to="/dashboard/historial" onClick={() => setIsOpen(false)}>
                                 <FaHistory /> <span>Historial Médico</span>
                             </Link>
                         </li>
+
                         <li>
                             <Link to="/dashboard/configuracion" onClick={() => setIsOpen(false)}>
                                 <FaCog /> <span>Configuración</span>

@@ -1,0 +1,142 @@
+.usuarios-container {
+    max-width: 100%;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    overflow-x: auto;
+    color: #333;
+}
+
+h4 {
+    text-align: center;
+    color: #333;
+}
+
+.Seccionh4 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Estilo del input de búsqueda */
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+/* Tabla */
+.usuarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.usuarios-table th,
+.usuarios-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.usuarios-table th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+.usuarios-table tbody tr:hover {
+    background: rgba(0, 123, 255, 0.1);
+}
+
+/* Botones */
+.edit-btn,
+.delete-btn,
+.add-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.edit-btn {
+    background: #ffc107;
+    color: #333;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.add-btn {
+    display: block;
+    width: fit-content;
+    margin: 15px auto;
+    background: #28a745;
+    color: white;
+}
+
+/* Efectos al pasar el mouse */
+.edit-btn:hover {
+    background: #e0a800;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.add-btn:hover {
+    background: #218838;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+
+    .usuarios-table,
+    .usuarios-table thead,
+    .usuarios-table tbody,
+    .usuarios-table th,
+    .usuarios-table td,
+    .usuarios-table tr {
+        display: block;
+    }
+
+    .usuarios-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        background: white;
+    }
+
+    .usuarios-table th {
+        display: none;
+    }
+
+    .usuarios-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border: none;
+    }
+
+    .usuarios-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #333;
+    }
+}
