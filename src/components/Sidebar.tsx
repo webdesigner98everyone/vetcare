@@ -37,6 +37,11 @@ const Sidebar = () => {
                 <nav>
                     <ul>
                         <li>
+                            <Link to="/update-profile" onClick={() => setIsOpen(false)}>
+                                <FaUser /> <span>Mi Perfil</span>
+                            </Link>
+                        </li>
+                        <li>
                             <Link to="/dashboard" onClick={() => setIsOpen(false)}>
                                 <FaHome /> <span>Dashboard</span>
                             </Link>

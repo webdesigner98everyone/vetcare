@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Carlos Gómez",
       "address": "Calle 123, Medellín, Colombia",
-      "contact": "+57 300 123 4567",
+      "contact": "300 123 4567",
       "email": "carlos.gomez@email.com",
       "password": "123456",
       "role": "admin"
