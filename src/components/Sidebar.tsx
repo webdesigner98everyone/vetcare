@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
 import {
     FaUser,
     FaDog,
@@ -14,6 +14,29 @@ import "../styles/Sidebar.css";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [username, setUsername] = useState("Usuario");
+    const navigate = useNavigate(); // Hook para redirigir
+
+    useEffect(() => {
+        // Obtener los datos del usuario desde localStorage
+        const storedUser = localStorage.getItem("user");
+        if (storedUser) {
+            try {
+                const userObject = JSON.parse(storedUser);
+                if (userObject.name) {
+                    setUsername(userObject.name);
+                }
+            } catch (error) {
+                console.error("Error al parsear el usuario de localStorage:", error);
+            }
+        }
+    }, []);
+
+    // Función para cerrar sesión
+    const handleLogout = () => {
+        localStorage.removeItem("user"); // Eliminar usuario del localStorage
+        navigate("/login"); // Redirigir a la página de login
+    };
 
     return (
         <div className="sidebar-wrapper">
@@ -31,7 +54,7 @@ const Sidebar = () => {
                     <div className="profile-picture">
                         <FaUser className="profile-icon" />
                     </div>
-                    <p className="username">Usuario</p>
+                    <p className="username">{username}</p>
                 </div>
 
                 <nav>
@@ -75,9 +98,9 @@ const Sidebar = () => {
                 </nav>
 
                 <div className="logout">
-                    <Link to="/logout" onClick={() => setIsOpen(false)}>
+                    <button onClick={handleLogout} className="logout-button">
                         <FaSignOutAlt /> <span>Salir</span>
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>
