@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2"; // Importamos SweetAlert2
 import "../styles/UpdateUser.css";
 
 interface User {
@@ -43,10 +44,26 @@ const EditarUsuario: React.FC<EditarUsuarioProps> = ({ usuario, onClose, onSave 
 
             if (!response.ok) throw new Error("Error al actualizar el usuario");
 
-            onSave(formData);
-            onClose();
+            // Notificación de éxito con SweetAlert2
+            Swal.fire({
+                icon: "success",
+                title: "Usuario actualizado correctamente",
+                text: "Los cambios se han guardado exitosamente.",
+                confirmButtonText: "Aceptar",
+            });
+
+            onSave(formData); // Llamamos a onSave para actualizar el usuario en el estado principal
+            onClose(); // Cerramos el modal después de guardar
         } catch (error) {
             console.error("Error al actualizar usuario:", error);
+
+            // Notificación de error con SweetAlert2
+            Swal.fire({
+                icon: "error",
+                title: "Error al actualizar",
+                text: "Hubo un problema al actualizar el usuario. Intenta nuevamente.",
+                confirmButtonText: "Aceptar",
+            });
         }
     };
 
