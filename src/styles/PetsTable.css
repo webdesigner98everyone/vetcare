@@ -40,19 +40,15 @@ h2 {
 
 /* Botón agregar */
 .add-button {
-    background: #333;
+    display: block;
+    width: fit-content;
+    margin: 15px auto;
+    background: #28a745;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 15px;
 }
 
 .add-button:hover {
-    background: #333;
+    background: #218838;
 }
 
 /* Estilos de la tabla */

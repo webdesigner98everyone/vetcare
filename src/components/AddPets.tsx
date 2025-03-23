@@ -11,6 +11,7 @@ interface Pet {
     gender: string;
     birthDate: string;
     microchip: string;
+    photo: string;
 }
 
 interface User {
@@ -33,11 +34,11 @@ const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
         gender: "",
         birthDate: "",
         microchip: "",
+        photo: "",
     });
 
     const [users, setUsers] = useState<User[]>([]);
 
-    // Cargar usuarios desde la API
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -55,6 +56,17 @@ const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData((prev) => ({ ...prev, photo: reader.result as string }));
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const getNextId = (): string => {
@@ -91,7 +103,6 @@ const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
             <div className="modal-containerpet">
                 <h2>Agregar Mascota</h2>
                 <form onSubmit={handleSubmit}>
-                    {/* Select para elegir el dueño */}
                     <select name="ownerId" value={formData.ownerId} onChange={handleChange} required>
                         <option value="">Selecciona el dueño</option>
                         {users.map((user) => (
@@ -125,8 +136,10 @@ const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
                     <input type="date" name="birthDate" value={formData.birthDate} onChange={handleChange} required />
                     <input type="text" name="microchip" placeholder="Número de Microchip" value={formData.microchip} onChange={handleChange} required />
 
-                    <button type="submit">Guardar</button>
-                    <button type="button" onClick={onClose}>Cancelar</button>
+                    <input type="file" name="photo" accept="image/*" onChange={handleFileChange} required />
+
+                    <button className="btnadd" type="submit">Guardar</button>
+                    <button className="btnadd" type="button" onClick={onClose}>Cancelar</button>
                 </form>
             </div>
         </div>

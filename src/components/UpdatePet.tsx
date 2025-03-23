@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import "../styles/UpdatePet.css";
+import "../styles/UpdatePet.css"
 
 interface Pet {
     id: string;
@@ -11,6 +11,7 @@ interface Pet {
     gender: string;
     birthDate: string;
     microchip: string;
+    photo: string;
 }
 
 interface User {
@@ -18,13 +19,13 @@ interface User {
     name: string;
 }
 
-interface EditarMascotaProps {
+interface EditPetProps {
     pet: Pet;
     onClose: () => void;
     onUpdate: (updatedPet: Pet) => Promise<void>;
 }
 
-const EditarMascota: React.FC<EditarMascotaProps> = ({ pet, onClose, onUpdate }) => {
+const EditPet: React.FC<EditPetProps> = ({ pet, onClose, onUpdate }) => {
     const [formData, setFormData] = useState<Pet>(pet);
     const [users, setUsers] = useState<User[]>([]);
 
@@ -48,6 +49,20 @@ const EditarMascota: React.FC<EditarMascotaProps> = ({ pet, onClose, onUpdate })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData((prevState) => ({
+                    ...prevState,
+                    photo: reader.result as string,
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -82,8 +97,8 @@ const EditarMascota: React.FC<EditarMascotaProps> = ({ pet, onClose, onUpdate })
     };
 
     return (
-        <div className="modal-mascotasupdate">
-            <div className="modal-contentMascotasupdate">
+        <div className="modal-edit-pet">
+            <div className="modal-content-edit-pet">
                 <h3>Editar Mascota</h3>
                 <form onSubmit={handleSubmit}>
                     <label>Dueño:</label>
@@ -128,9 +143,18 @@ const EditarMascota: React.FC<EditarMascotaProps> = ({ pet, onClose, onUpdate })
                     <label>Microchip:</label>
                     <input type="text" name="microchip" value={formData.microchip} onChange={handleChange} required />
 
-                    <div className="modal-buttonsupdate">
-                        <button type="submit">Guardar</button>
-                        <button type="button" onClick={onClose}>Cancelar</button>
+                    <label>Foto:</label>
+                    <input type="file" accept="image/*" onChange={handleFileChange} />
+
+                    {formData.photo && (
+                        <div className="photo-preview-edit">
+                            <img src={formData.photo} alt="Foto de la mascota" width="150" />
+                        </div>
+                    )}
+
+                    <div className="modal-buttons-edit">
+                        <button type="submit" className="save-btn-edit">Guardar</button>
+                        <button type="button" className="cancel-btn-edit" onClick={onClose}>Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -138,4 +162,4 @@ const EditarMascota: React.FC<EditarMascotaProps> = ({ pet, onClose, onUpdate })
     );
 };
 
-export default EditarMascota;
+export default EditPet;

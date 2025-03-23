@@ -19,6 +19,7 @@ interface Pet {
     gender: string;
     birthDate: string;
     microchip: string;
+    photo: string; // Agregar este campo para que coincida con el tipo esperado
 }
 
 const PetsTable = () => {
@@ -103,23 +104,20 @@ const PetsTable = () => {
                 onChange={(e) => setSearch(e.target.value)}
                 className="searchPets-input"
             />
-            <button className="add-button" onClick={() => setShowAddModal(true)}>
-                Agregar Mascota
-            </button>
 
             {showAddModal && (
-                <AddPets 
-                    onAdd={handleAddPet} 
-                    onClose={() => setShowAddModal(false)} 
-                    existingPets={pets} 
+                <AddPets
+                    onAdd={handleAddPet}
+                    onClose={() => setShowAddModal(false)}
+                    existingPets={pets}
                 />
             )}
 
             {editingPet && (
-                <EditarMascota 
-                    pet={editingPet} 
-                    onUpdate={handleUpdatePet} 
-                    onClose={() => setEditingPet(null)} 
+                <EditarMascota
+                    pet={editingPet}
+                    onUpdate={handleUpdatePet}
+                    onClose={() => setEditingPet(null)}
                 />
             )}
 
@@ -157,6 +155,9 @@ const PetsTable = () => {
                             ))}
                     </tbody>
                 </table>
+                <button className="add-button" onClick={() => setShowAddModal(true)}>
+                    Agregar Mascota
+                </button>
             </div>
         </div>
     );
