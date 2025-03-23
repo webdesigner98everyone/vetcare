@@ -149,16 +149,8 @@
   ],
   "vaccinations": [
     {
-      "id": "1",
-      "petId": null,
-      "vaccineName": "Rabia",
-      "dateAdministered": "2024-03-10",
-      "nextDose": "2025-03-10",
-      "veterinarian": "Dr. Juan Pérez"
-    },
-    {
       "id": "2",
-      "petId": null,
+      "petId": "2",
       "vaccineName": "Moquillo",
       "dateAdministered": "2024-06-15",
       "nextDose": "2025-06-15",
@@ -171,6 +163,14 @@
       "dateAdministered": "2024-02-20",
       "nextDose": "2025-02-20",
       "veterinarian": "Dr. Fernando Gómez"
+    },
+    {
+      "id": "da41",
+      "petId": "8",
+      "vaccineName": "Rabia",
+      "dateAdministered": "2025-03-23",
+      "nextDose": "2026-03-23",
+      "veterinarian": "Dr Daniel"
     }
   ]
 }

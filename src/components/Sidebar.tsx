@@ -74,10 +74,8 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
                             <FaDog /> <span>Mascotas</span>
                         </li>
 
-                        <li>
-                            <Link to="/dashboard/vacunas" onClick={() => setIsOpen(false)}>
-                                <FaSyringe /> <span>Vacunas</span>
-                            </Link>
+                        <li onClick={() => { setActiveSection("vacunas"); setIsOpen(false); }}>
+                            <FaSyringe /> <span>Vacunas</span>
                         </li>
 
                         <li>

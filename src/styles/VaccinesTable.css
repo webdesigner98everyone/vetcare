@@ -1,0 +1,141 @@
+/* Estilos generales */
+.vacunas-container {
+    max-width: 1000px; /* Aumentamos el ancho */
+    margin: 40px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    overflow-x: hidden;
+}
+
+/* Título */
+.vacunas-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #222;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Barra de búsqueda */
+.vacunas-container input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 30px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 18px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vacunas-container input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Lista de vacunas */
+.vacunas-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vacunas-item {
+    background: #f8f9fa;
+    padding: 25px; /* Más espacio */
+    margin-bottom: 20px; /* Más separación */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column; /* Acomodamos la información en columnas */
+    align-items: flex-start; /* Alinear a la izquierda */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease-in-out;
+    color: #333;
+    width: 100%;
+}
+
+.vacunas-item:hover {
+    transform: scale(1.02);
+}
+
+/* Nombre de la mascota */
+.vacunas-item strong {
+    font-size: 22px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Botones */
+.vacunas-item button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 18px; /* Más grandes */
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    width: 150px;
+}
+
+.vacunas-item button:nth-child(2) {
+    background-color: #dc3545;
+}
+
+.vacunas-item button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Botones de acción */
+.button-group button {
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 8px;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.button-group .edit-btn-btn {
+    background: #ffc107;
+    color: white;
+}
+
+.button-group .edit-btn-btn:hover {
+    background: #e0a800;
+}
+
+.button-group .delete-btn-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.button-group .delete-btn-btn:hover {
+    background: #c82333;
+}
+
+/* Responsividad mejorada */
+@media (max-width: 768px) {
+    .vacunas-container {
+        max-width: 95%;
+        padding: 25px;
+    }
+
+    .vacunas-item {
+        padding: 20px;
+        text-align: left;
+    }
+
+    .vacunas-item strong {
+        font-size: 20px;
+    }
+
+    .vacunas-item button {
+        width: 100%;
+        margin-top: 12px;
+    }
+}

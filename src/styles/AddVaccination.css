@@ -1,0 +1,140 @@
+/* Fondo semi-transparente */
+.modal-vacuna {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px; /* Espaciado en móviles */
+}
+
+/* Contenedor del modal */
+.modal-content-vacuna {
+    background: #fff;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos del título */
+.modal-content-vacuna h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Etiquetas */
+.modal-content-vacuna label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 12px;
+    color: #444;
+}
+
+/* Inputs y Select */
+.modal-content-vacuna input,
+.modal-content-vacuna select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border 0.3s ease-in-out;
+}
+
+.modal-content-vacuna input:focus,
+.modal-content-vacuna select:focus {
+    border: 1px solid #28a745;
+    outline: none;
+}
+
+/* Botones */
+.modal-buttons-vacuna {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-buttons-vacuna button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    min-width: 130px;
+}
+
+/* Botón de agregar */
+.modal-buttons-vacuna button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+.modal-buttons-vacuna button[type="submit"]:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Botón de cancelar */
+.modal-buttons-vacuna button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+    font-weight: bold;
+}
+
+.modal-buttons-vacuna button[type="button"]:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Mejoramos el diseño en pantallas grandes */
+@media (min-width: 768px) {
+    .modal-content-vacuna {
+        width: 70%;
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .modal-content-vacuna {
+        width: 60%;
+        max-width: 700px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .modal-content-vacuna {
+        width: 50%;
+        max-width: 800px;
+    }
+}
