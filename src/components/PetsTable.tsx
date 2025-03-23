@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/PetsTable.css"; // Importa el CSS
+import AddPets from "./AddPets";
+import EditarMascota from "./UpdatePet";
 
 interface User {
     id: string;
@@ -23,6 +25,8 @@ const PetsTable = () => {
     const [pets, setPets] = useState<Pet[]>([]);
     const [users, setUsers] = useState<User[]>([]);
     const [search, setSearch] = useState("");
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [editingPet, setEditingPet] = useState<Pet | null>(null);
 
     useEffect(() => {
         fetchUsers();
@@ -67,36 +71,69 @@ const PetsTable = () => {
         }
     };
 
+    const handleAddPet = async (newPet: Omit<Pet, "id">) => {
+        try {
+            const response = await axios.post("http://localhost:5000/pets", newPet);
+            const addedPet = response.data;
+
+            setPets((prevPets) => [...prevPets, { ...addedPet, ownerName: users.find((u) => u.id === addedPet.ownerId)?.name || "Desconocido" }]);
+            setShowAddModal(false);
+        } catch (error) {
+            console.error("Error adding pet:", error);
+        }
+    };
+
+    const handleUpdatePet = async (updatedPet: Pet) => {
+        try {
+            await axios.put(`http://localhost:5000/pets/${updatedPet.id}`, updatedPet);
+            fetchPets();
+            setEditingPet(null);
+        } catch (error) {
+            console.error("Error updating pet:", error);
+        }
+    };
+
     return (
         <div className="containerpets">
             <h2 className="Seccionh2">Gestión de Mascotas</h2>
-
-            <div className="search-containerpets">
-                <input
-                    type="text"
-                    placeholder="Buscar por nombre"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                />
-            </div>
-
-            <button className="add-button" onClick={() => console.log("Agregar mascota")}>
+            <input
+                type="text"
+                placeholder="Buscar por nombre de mascota"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="searchPets-input"
+            />
+            <button className="add-button" onClick={() => setShowAddModal(true)}>
                 Agregar Mascota
             </button>
+
+            {showAddModal && (
+                <AddPets 
+                    onAdd={handleAddPet} 
+                    onClose={() => setShowAddModal(false)} 
+                    existingPets={pets} 
+                />
+            )}
+
+            {editingPet && (
+                <EditarMascota 
+                    pet={editingPet} 
+                    onUpdate={handleUpdatePet} 
+                    onClose={() => setEditingPet(null)} 
+                />
+            )}
 
             <div className="table-containerpets">
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>ID Dueño</th>
-                            <th>Nombre Dueño</th>
+                            <th>Nombre Mascota</th>
                             <th>Raza</th>
                             <th>Especie</th>
                             <th>Género</th>
                             <th>Fecha Nacimiento</th>
                             <th>Microchip</th>
+                            <th>Nombre Dueño</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -105,17 +142,15 @@ const PetsTable = () => {
                             .filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
                             .map((pet) => (
                                 <tr key={pet.id}>
-                                    <td>{pet.id}</td>
                                     <td>{pet.name}</td>
-                                    <td>{pet.ownerId}</td>
-                                    <td>{pet.ownerName}</td>
                                     <td>{pet.breed}</td>
                                     <td>{pet.species}</td>
                                     <td>{pet.gender}</td>
                                     <td>{pet.birthDate}</td>
                                     <td>{pet.microchip}</td>
+                                    <td>{pet.ownerName}</td>
                                     <td className="action-buttons">
-                                        <button className="edit-btn" onClick={() => console.log("Editar", pet.id)}>✏️</button>
+                                        <button className="edit-btn" onClick={() => setEditingPet(pet)}>✏️</button>
                                         <button className="delete-btn" onClick={() => handleDelete(pet.id)}>🗑️</button>
                                     </td>
                                 </tr>

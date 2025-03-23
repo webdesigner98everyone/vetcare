@@ -48,17 +48,6 @@
   ],
   "pets": [
     {
-      "id": "1",
-      "ownerId": "4",
-      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlOJE8T-p6-AOxK7pi2SjgWmNXU29kdPqxJg&s",
-      "name": "Rex",
-      "breed": "Labrador Retriever",
-      "species": "Perro",
-      "gender": "Macho",
-      "birthDate": "2021-05-12",
-      "microchip": "1234567890"
-    },
-    {
       "id": "2",
       "ownerId": "2",
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW1IdS2CLigVKb84B4FrSWcVKt0wQufXDlxw&s",
@@ -101,19 +90,50 @@
       "gender": "Macho",
       "birthDate": "2022-01-30",
       "microchip": "6789012345"
+    },
+    {
+      "id": "6",
+      "ownerId": "5",
+      "name": "ruffo",
+      "breed": "JackRusell",
+      "species": "Perro",
+      "gender": "male",
+      "birthDate": "2024-02-22",
+      "microchip": "N/a"
+    },
+    {
+      "id": "7",
+      "ownerId": "5",
+      "name": "Lucas",
+      "breed": "Dalmata",
+      "species": "Perro",
+      "gender": "Macho",
+      "birthDate": "2023-03-06",
+      "microchip": "N/a"
+    },
+    {
+      "id": "8",
+      "ownerId": "3",
+      "name": "Clifort",
+      "breed": "criollo",
+      "species": "Conejo",
+      "gender": "Macho",
+      "birthDate": "2021-03-05",
+      "microchip": "N/a",
+      "ownerName": "Luis Fernández"
     }
   ],
   "medicalHistory": [
     {
       "id": "1",
-      "petId": "1",
+      "petId": null,
       "date": "2024-03-10",
       "description": "Vacunación contra la rabia",
       "veterinarian": "Dr. Juan Pérez"
     },
     {
       "id": "2",
-      "petId": "1",
+      "petId": null,
       "date": "2024-05-15",
       "description": "Control general y desparasitación",
       "veterinarian": "Dra. María López"
@@ -129,7 +149,7 @@
   "vaccinations": [
     {
       "id": "1",
-      "petId": "1",
+      "petId": null,
       "vaccineName": "Rabia",
       "dateAdministered": "2024-03-10",
       "nextDose": "2025-03-10",
@@ -137,7 +157,7 @@
     },
     {
       "id": "2",
-      "petId": "1",
+      "petId": null,
       "vaccineName": "Moquillo",
       "dateAdministered": "2024-06-15",
       "nextDose": "2025-06-15",

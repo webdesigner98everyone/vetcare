@@ -112,11 +112,9 @@ const Usuarios: React.FC = () => {
                                 <td>{user.role}</td>
                                 <td>{user.address}</td>
                                 <td>{user.contact}</td>
-                                <td>
-                                    <button className="edit-btn" onClick={() => handleEdit(user)}>Editar</button>
-                                    <button className="delete-btn" onClick={() => handleDelete(user.id)}>
-                                        Eliminar
-                                    </button>
+                                <td className="action-buttonsuser">
+                                    <button className="edituser-btn" onClick={() => handleEdit(user)}>✏️</button>
+                                    <button className="deleteuser-btn" onClick={() => handleDelete(user.id)}>🗑️</button>
                                 </td>
                             </tr>
                         ))}
