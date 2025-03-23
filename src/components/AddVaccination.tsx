@@ -7,6 +7,15 @@ interface Pet {
     name: string;
 }
 
+interface Vaccination {
+    id: string; // Se mantiene como cadena
+    petId: string;
+    vaccineName: string;
+    dateAdministered: string;
+    nextDose: string;
+    veterinarian: string;
+}
+
 interface AddVaccinationProps {
     onClose: () => void;
     onVaccinationAdded: () => void;
@@ -14,6 +23,7 @@ interface AddVaccinationProps {
 
 const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationAdded }) => {
     const [pets, setPets] = useState<Pet[]>([]);
+    const [vaccinations, setVaccinations] = useState<Vaccination[]>([]);
     const [petId, setPetId] = useState<string>("");
     const [vaccineName, setVaccineName] = useState<string>("");
     const [dateAdministered, setDateAdministered] = useState<string>("");
@@ -22,6 +32,7 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
 
     useEffect(() => {
         fetchPets();
+        fetchVaccinations();
     }, []);
 
     const fetchPets = async () => {
@@ -33,6 +44,21 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
         }
     };
 
+    const fetchVaccinations = async () => {
+        try {
+            const response = await axios.get("http://localhost:5000/vaccinations");
+            setVaccinations(response.data);
+        } catch (error) {
+            console.error("Error fetching vaccinations:", error);
+        }
+    };
+
+    const getNextId = (): string => {
+        if (vaccinations.length === 0) return "1";
+        const maxId = Math.max(...vaccinations.map(vaccine => Number(vaccine.id)));
+        return String(maxId + 1);
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!petId || !vaccineName || !dateAdministered || !nextDose || !veterinarian) {
@@ -40,15 +66,17 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
             return;
         }
 
-        try {
-            await axios.post("http://localhost:5000/vaccinations", {
-                petId,
-                vaccineName,
-                dateAdministered,
-                nextDose,
-                veterinarian,
-            });
+        const newVaccination: Vaccination = {
+            id: getNextId(),
+            petId,
+            vaccineName,
+            dateAdministered,
+            nextDose,
+            veterinarian,
+        };
 
+        try {
+            await axios.post("http://localhost:5000/vaccinations", newVaccination);
             onVaccinationAdded();
             onClose();
         } catch (error) {

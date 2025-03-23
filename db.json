@@ -165,11 +165,19 @@
       "veterinarian": "Dr. Fernando Gómez"
     },
     {
-      "id": "da41",
+      "id": "4",
       "petId": "8",
       "vaccineName": "Rabia",
       "dateAdministered": "2025-03-23",
       "nextDose": "2026-03-23",
+      "veterinarian": "Dr Daniel"
+    },
+    {
+      "id": "5",
+      "petId": "8",
+      "vaccineName": "Moquillo",
+      "dateAdministered": "2025-03-22",
+      "nextDose": "2025-07-22",
       "veterinarian": "Dr Daniel"
     }
   ]
