@@ -1,6 +1,6 @@
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import Slider from "react-slick";
-import { FaPaw, FaSyringe, FaStethoscope, FaUtensils, FaQuoteLeft } from "react-icons/fa";
+import { FaPaw, FaSyringe, FaStethoscope, FaQrcode, FaQuoteLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useHomeLogic } from "./logic/HomeLogic";
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="features-grid">
           <motion.div whileHover={{ scale: 1.05 }} className="feature-card">
             <FaPaw className="icon" />
-            <h3>Control Administrativo</h3>
+            <h3>Información</h3>
             <p>Guarda información detallada de tus mascotas con fotos y datos clave.</p>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} className="feature-card">
@@ -60,9 +60,9 @@ export default function Home() {
             <p>Accede al historial de consultas veterinarias en cualquier momento.</p>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} className="feature-card">
-            <FaUtensils className="icon" />
-            <h3>Nutrición</h3>
-            <p>Lleva un registro de la alimentación y recomendaciones para tu mascota.</p>
+            <FaQrcode className="icon" />
+            <h3>Generación de QR </h3>
+            <p>Te ayudamos a consolidar la información de tu mascota en un código QR.</p>
           </motion.div>
         </div>
       </section>
