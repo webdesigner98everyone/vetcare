@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2"; // Importamos SweetAlert2
 import "../styles/VaccinesTable.css";
-import AddVaccination from "./AddVaccination"; // Importa el nuevo componente
+import AddVaccination from "./AddVaccination";
+import EditVaccination from "./EditVaccination";
 
 interface Vaccination {
     id: string;
@@ -22,6 +24,7 @@ const VaccinationManagement: React.FC = () => {
     const [pets, setPets] = useState<Pet[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [mostrarAgregarVacuna, setMostrarAgregarVacuna] = useState(false);
+    const [vacunaSeleccionada, setVacunaSeleccionada] = useState<Vaccination | null>(null);
 
     useEffect(() => {
         fetchVaccinations();
@@ -47,12 +50,35 @@ const VaccinationManagement: React.FC = () => {
     };
 
     const handleDeleteVaccination = async (id: string) => {
-        try {
-            await axios.delete(`http://localhost:5000/vaccinations/${id}`);
-            setVaccinations(vaccinations.filter((vaccine) => vaccine.id !== id));
-        } catch (error) {
-            console.error("Error deleting vaccination:", error);
-        }
+        // Alerta de confirmación
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "Esta acción eliminará la vacuna permanentemente.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axios.delete(`http://localhost:5000/vaccinations/${id}`);
+                    setVaccinations(vaccinations.filter((vaccine) => vaccine.id !== id));
+
+                    // Mostrar alerta de éxito
+                    Swal.fire({
+                        title: "Eliminado",
+                        text: "La vacuna ha sido eliminada correctamente.",
+                        icon: "success",
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
+                } catch (error) {
+                    console.error("Error deleting vaccination:", error);
+                }
+            }
+        });
     };
 
     const groupedVaccinations = pets.map(pet => ({
@@ -74,6 +100,7 @@ const VaccinationManagement: React.FC = () => {
             <ul className="vacunas-list">
                 {groupedVaccinations
                     .filter(pet => pet.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
                     .map((pet) => (
                         <li key={pet.id} className="vacunas-item">
                             <p className="pet-name"><strong>{pet.name}</strong></p>
@@ -84,20 +111,34 @@ const VaccinationManagement: React.FC = () => {
                                         <p>🗓 Próxima Dosis: {vac.nextDose}</p>
                                         <p>Veterinario: {vac.veterinarian}</p>
                                         <div className="button-group">
-                                            <button className="edit-btnvacuna" onClick={() => console.log("Editar", vac)}>✏️</button>
+                                            <button className="edit-btnvacuna" onClick={() => setVacunaSeleccionada(vac)}>✏️</button>
                                             <button className="delete-btnvacuna" onClick={() => handleDeleteVaccination(vac.id)}>🗑️</button>
                                         </div>
                                     </li>
                                 ))}
                             </ul>
                         </li>
-                    ))}
+                    ))
+                }
+                {groupedVaccinations.filter(pet => pet.name.toLowerCase().includes(searchTerm.toLowerCase())).length === 0 && (
+                    <p className="no-results">❌ No se encontraron registros.</p>
+                )}
             </ul>
 
+            {/* Modal para agregar vacuna */}
             {mostrarAgregarVacuna && (
                 <AddVaccination
                     onClose={() => setMostrarAgregarVacuna(false)}
                     onVaccinationAdded={fetchVaccinations}
+                />
+            )}
+
+            {/* Modal para editar vacuna */}
+            {vacunaSeleccionada && (
+                <EditVaccination
+                    vaccination={vacunaSeleccionada}
+                    onClose={() => setVacunaSeleccionada(null)}
+                    onVaccinationUpdated={fetchVaccinations}
                 />
             )}
         </div>

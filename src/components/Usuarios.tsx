@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/usuarios.css";
 import EditarUsuario from "./UpdateUser";
 import AgregarUsuario from "./AddUser";
+import Swal from "sweetalert2"; // Importamos SweetAlert2
+
 
 interface User {
     id: string;
@@ -33,14 +35,28 @@ const Usuarios: React.FC = () => {
     }, []);
 
     const handleDelete = async (id: string) => {
-        if (!window.confirm("¿Estás seguro de eliminar este usuario?")) return;
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "Esta acción eliminará el usuario registrado permanentemente.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
+                    setUsuarios(usuarios.filter((user) => user.id !== id));
 
-        try {
-            await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
-            setUsuarios(usuarios.filter((user) => user.id !== id));
-        } catch (error) {
-            console.error("Error al eliminar usuario:", error);
-        }
+                    Swal.fire("Eliminado", "El usuario ha sido eliminado.", "success");
+                } catch (error) {
+                    console.error("Error al eliminar usuario:", error);
+                    Swal.fire("Error", "No se pudo eliminar el usuario.", "error");
+                }
+            }
+        });
     };
 
     const handleEdit = (user: User) => {
@@ -100,24 +116,34 @@ const Usuarios: React.FC = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {usuarios
-                        .filter((user) =>
-                            user.name.toLowerCase().includes(search.toLowerCase())
-                        )
-                        .map((user) => (
-                            <tr key={user.id}>
-                                <td>{user.id}</td>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
-                                <td>{user.address}</td>
-                                <td>{user.contact}</td>
-                                <td className="action-buttonsuser">
-                                    <button className="edituser-btn" onClick={() => handleEdit(user)}>✏️</button>
-                                    <button className="deleteuser-btn" onClick={() => handleDelete(user.id)}>🗑️</button>
-                                </td>
-                            </tr>
-                        ))}
+                    {usuarios.filter((user) =>
+                        user.name.toLowerCase().includes(search.toLowerCase())
+                    ).length > 0 ? (
+                        usuarios
+                            .filter((user) =>
+                                user.name.toLowerCase().includes(search.toLowerCase())
+                            )
+                            .map((user) => (
+                                <tr key={user.id}>
+                                    <td>{user.id}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.role}</td>
+                                    <td>{user.address}</td>
+                                    <td>{user.contact}</td>
+                                    <td className="action-buttonsuser">
+                                        <button className="edituser-btn" onClick={() => handleEdit(user)}>✏️</button>
+                                        <button className="deleteuser-btn" onClick={() => handleDelete(user.id)}>🗑️</button>
+                                    </td>
+                                </tr>
+                            ))
+                    ) : (
+                        <tr>
+                            <td colSpan={7} className="no-results">
+                                ❌ No se encontraron usuarios con ese nombre.
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
 

@@ -28,15 +28,6 @@
       "role": "viewer"
     },
     {
-      "id": "4",
-      "name": "brenda loaiza",
-      "email": "aleloa1993.bala@gmail.com",
-      "password": "cucu",
-      "address": "cr121a #47a-46, unidad ventura 2, torre Q, Apto 201",
-      "contact": "3184265820",
-      "role": "viewer"
-    },
-    {
       "id": "5",
       "name": "luis alberto forero guzman",
       "email": "luis.forero@carvajal.com",
@@ -102,16 +93,6 @@
       "microchip": "N/a"
     },
     {
-      "id": "7",
-      "ownerId": "5",
-      "name": "Lucas",
-      "breed": "Dalmata",
-      "species": "Perro",
-      "gender": "Macho",
-      "birthDate": "2023-03-06",
-      "microchip": "N/a"
-    },
-    {
       "id": "8",
       "ownerId": "3",
       "name": "Clifort",
@@ -170,14 +151,6 @@
       "vaccineName": "Rabia",
       "dateAdministered": "2025-03-23",
       "nextDose": "2026-03-23",
-      "veterinarian": "Dr Daniel"
-    },
-    {
-      "id": "5",
-      "petId": "8",
-      "vaccineName": "Moquillo",
-      "dateAdministered": "2025-03-22",
-      "nextDose": "2025-07-22",
       "veterinarian": "Dr Daniel"
     }
   ]

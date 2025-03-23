@@ -3,6 +3,8 @@ import axios from "axios";
 import "../styles/PetsTable.css"; // Importa el CSS
 import AddPets from "./AddPets";
 import EditarMascota from "./UpdatePet";
+import Swal from "sweetalert2";
+
 
 interface User {
     id: string;
@@ -61,15 +63,29 @@ const PetsTable = () => {
         }
     };
 
+    // Función para eliminar una mascota con alerta de confirmación
     const handleDelete = async (id: string) => {
-        if (window.confirm("¿Seguro que quieres eliminar esta mascota?")) {
-            try {
-                await axios.delete(`http://localhost:5000/pets/${id}`);
-                fetchPets();
-            } catch (error) {
-                console.error("Error deleting pet:", error);
+        Swal.fire({
+            title: "¿Estás seguro?",
+            text: "Esta acción eliminará la mascota del usuario registrada permanentemente.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axios.delete(`http://localhost:5000/pets/${id}`);
+                    fetchPets();
+                    Swal.fire("Eliminado", "La mascota ha sido eliminada.", "success");
+                } catch (error) {
+                    console.error("Error deleting pet:", error);
+                    Swal.fire("Error", "No se pudo eliminar la mascota.", "error");
+                }
             }
-        }
+        });
     };
 
     const handleAddPet = async (newPet: Omit<Pet, "id">) => {
@@ -136,23 +152,31 @@ const PetsTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {pets
-                            .filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
-                            .map((pet) => (
-                                <tr key={pet.id}>
-                                    <td>{pet.name}</td>
-                                    <td>{pet.breed}</td>
-                                    <td>{pet.species}</td>
-                                    <td>{pet.gender}</td>
-                                    <td>{pet.birthDate}</td>
-                                    <td>{pet.microchip}</td>
-                                    <td>{pet.ownerName}</td>
-                                    <td className="action-buttons">
-                                        <button className="edit-btn" onClick={() => setEditingPet(pet)}>✏️</button>
-                                        <button className="delete-btn" onClick={() => handleDelete(pet.id)}>🗑️</button>
-                                    </td>
-                                </tr>
-                            ))}
+                        {pets.filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase())).length === 0 ? (
+                            <tr>
+                                <td colSpan={8} style={{ textAlign: "center", fontWeight: "bold", padding: "10px" }}>
+                                    ❌ No se encontraron Mascotas con ese nombre.
+                                </td>
+                            </tr>
+                        ) : (
+                            pets
+                                .filter((pet) => pet.name.toLowerCase().includes(search.toLowerCase()))
+                                .map((pet) => (
+                                    <tr key={pet.id}>
+                                        <td>{pet.name}</td>
+                                        <td>{pet.breed}</td>
+                                        <td>{pet.species}</td>
+                                        <td>{pet.gender}</td>
+                                        <td>{pet.birthDate}</td>
+                                        <td>{pet.microchip}</td>
+                                        <td>{pet.ownerName}</td>
+                                        <td className="action-buttons">
+                                            <button className="edit-btn" onClick={() => setEditingPet(pet)}>✏️</button>
+                                            <button className="delete-btn" onClick={() => handleDelete(pet.id)}>🗑️</button>
+                                        </td>
+                                    </tr>
+                                ))
+                        )}
                     </tbody>
                 </table>
                 <button className="add-button" onClick={() => setShowAddModal(true)}>
