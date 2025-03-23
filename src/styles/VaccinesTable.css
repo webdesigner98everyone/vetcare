@@ -68,7 +68,7 @@
 
 /* Botones */
 .vacunas-item button {
-    background-color: #28a745;
+    background-color: #e0a800;
     color: white;
     border: none;
     padding: 12px 18px; /* Más grandes */
@@ -89,6 +89,18 @@
     transform: scale(1.05);
 }
 
+.add-vacuna-btn {
+    display: block;
+    width: fit-content;
+    margin: 15px auto;
+    background: #28a745;
+    color: white;
+}
+
+.add-vacuna-btn:hover {
+    background: #218838;
+}
+
 /* Botones de acción */
 .button-group button {
     border: none;
@@ -100,21 +112,21 @@
     transition: 0.3s;
 }
 
-.button-group .edit-btn-btn {
+.button-group .edit-btnvacuna-btn {
     background: #ffc107;
     color: white;
 }
 
-.button-group .edit-btn-btn:hover {
+.button-group .edit-btnvacuna-btn:hover {
     background: #e0a800;
 }
 
-.button-group .delete-btn-btn {
+.button-group .delete-btnvacuna-btn {
     background: #dc3545;
     color: white;
 }
 
-.button-group .delete-btn-btn:hover {
+.button-group .delete-btnvacunaa-btn:hover {
     background: #c82333;
 }
 

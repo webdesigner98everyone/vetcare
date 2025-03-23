@@ -84,8 +84,8 @@ const VaccinationManagement: React.FC = () => {
                                         <p>🗓 Próxima Dosis: {vac.nextDose}</p>
                                         <p>Veterinario: {vac.veterinarian}</p>
                                         <div className="button-group">
-                                            <button className="edit-btn" onClick={() => console.log("Editar", vac)}>✏️</button>
-                                            <button className="delete-btn" onClick={() => handleDeleteVaccination(vac.id)}>🗑️</button>
+                                            <button className="edit-btnvacuna" onClick={() => console.log("Editar", vac)}>✏️</button>
+                                            <button className="delete-btnvacuna" onClick={() => handleDeleteVaccination(vac.id)}>🗑️</button>
                                         </div>
                                     </li>
                                 ))}
