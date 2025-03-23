@@ -10,15 +10,20 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    padding: 10px; /* Asegura un margen en pantallas pequeñas */
+    overflow-y: auto; /* Evita que el modal se salga en pantallas pequeñas */
 }
 
 .modal-contentMascotasupdate {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-height: 90vh; /* Limita la altura en pantallas pequeñas */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
 }
 
 h3 {
@@ -34,29 +39,32 @@ label {
     margin: 10px 0 5px;
 }
 
-input {
+input, select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    box-sizing: border-box;
 }
 
 .modal-buttonsupdate {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Cambia a fila en pantallas grandes */
     gap: 10px;
     margin-top: 15px;
+    justify-content: space-between;
 }
 
 button {
-    width: 100%;
+    flex: 1; /* Distribuye los botones de manera uniforme */
     padding: 10px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 button[type="submit"] {
@@ -71,10 +79,17 @@ button[type="button"] {
 
 button:hover {
     opacity: 0.9;
+    transform: scale(1.05);
 }
 
+/* Media Queries para pantallas pequeñas */
 @media (max-width: 480px) {
     .modal-contentMascotasupdate {
         width: 95%;
+        padding: 15px;
+    }
+
+    .modal-buttonsupdate {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
     }
 }

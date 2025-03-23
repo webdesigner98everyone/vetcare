@@ -10,6 +10,8 @@
     visibility: visible !important;
     opacity: 1;
     transition: opacity 0.3s ease-in-out;
+    padding: 10px; /* Asegura un margen en pantallas pequeñas */
+    overflow-y: auto; /* Evita que el modal se salga en pantallas pequeñas */
 }
 
 /* Contenedor del contenido del modal */
@@ -27,6 +29,8 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
     animation: fadeIn 0.3s ease-in-out;
+    max-height: 90vh; /* Limita la altura en pantallas pequeñas */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
 }
 
 /* Inputs estilizados */
