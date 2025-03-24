@@ -50,7 +50,11 @@
 
 /* Estilos de tarjetas */
 .pet-card {
-  width: 280px; /* Aumentamos un poco el tamaño */
+  width: 280px; /* Fija el ancho */
+  height: 350px; /* Fija la altura */
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos internos se distribuyan bien */
+  justify-content: space-between; /* Distribuye el contenido dentro de la tarjeta */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px #2c7a7b;
@@ -68,10 +72,10 @@
 
 .pet-card img {
   width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible */
-  height: auto; /* Mantiene la proporción */
+  height: 200px;  /* Fija la altura */
   max-height: 200px; /* Evita que sea demasiado grande en pantallas pequeñas */
-  object-fit: cover; /* Recorta la imagen para que se vea bien */
-  border-radius: 10px; /* Suaviza las esquinas */
+  object-fit: cover; /* Recorta la imagen para que siempre llene el espacio */
+  border-radius: 10px 10px 0 0; /* Redondea solo la parte superior */
   border-bottom: 3px solid #ff9900;
 }
 
