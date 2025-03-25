@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import "../styles/AddVaccination.css";
 
 interface Pet {
@@ -78,9 +79,23 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
         try {
             await axios.post("http://localhost:5000/vaccinations", newVaccination);
             onVaccinationAdded();
+            // Mostrar alerta con SweetAlert2
+            const petName = pets.find(p => p.id === petId)?.name || "Desconocido";
+            Swal.fire({
+                title: "¡Éxito!",
+                text: `La vacuna ${vaccineName} fue agregada con éxito a ${petName}.`,
+                icon: "success",
+                confirmButtonText: "OK",
+            });
+
             onClose();
         } catch (error) {
-            console.error("Error adding vaccination:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Hubo un error al agregar la Vacuna a la mascota seleccionada",
+                text: (error as Error).message || "Intenta nuevamente.",
+                confirmButtonText: "Aceptar",
+            });
         }
     };
 
