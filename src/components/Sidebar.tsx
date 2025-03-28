@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
-import { FaUser,FaUsers, FaDog, FaSyringe, FaHistory, FaCog, FaSignOutAlt, FaHome, FaBars } from "react-icons/fa";
+import { FaUser, FaUsers, FaDog, FaSyringe, FaHistory, FaCog, FaSignOutAlt, FaHome, FaBars } from "react-icons/fa";
 import "../styles/Sidebar.css";
 
 
@@ -78,10 +78,8 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
                             <FaSyringe /> <span>Vacunas</span>
                         </li>
 
-                        <li>
-                            <Link to="/dashboard/historial" onClick={() => setIsOpen(false)}>
-                                <FaHistory /> <span>Historial Médico</span>
-                            </Link>
+                        <li onClick={() => { setActiveSection("historial"); setIsOpen(false); }}>
+                            <FaHistory /> <span>Historial Médico</span>
                         </li>
 
                         <li>

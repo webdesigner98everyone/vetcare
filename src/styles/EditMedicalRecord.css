@@ -1,0 +1,142 @@
+/* Estilos para el modal de edición basado en historial-container */
+.modaledit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-contentedit {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.edit-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Formulario */
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+.edit-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Campos de entrada */
+.edit-input,
+.edit-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.edit-input:focus,
+.edit-textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+    outline: none;
+}
+
+.edit-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Botones */
+.modal-actionsedit {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.edit-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+/* Botón de Actualizar */
+.edit-btn-submit {
+    background: #28a745;
+    color: white;
+}
+
+.edit-btn-submit:hover {
+    background: #218838;
+    transform: scale(1.02);
+}
+
+/* Botón de Cancelar */
+.edit-btn-cancel {
+    background: #dc3545;
+    color: white;
+}
+
+.edit-btn-cancel:hover {
+    background: #c82333;
+    transform: scale(1.02);
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+    .modal-contentedit {
+        padding: 15px;
+    }
+    .edit-title {
+        font-size: 18px;
+    }
+    .edit-input,
+    .edit-textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+    .edit-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}

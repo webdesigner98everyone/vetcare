@@ -118,15 +118,8 @@
   ],
   "medicalHistory": [
     {
-      "id": "1",
-      "petId": null,
-      "date": "2024-03-10",
-      "description": "Vacunación contra la rabia",
-      "veterinarian": "Dr. Juan Pérez"
-    },
-    {
       "id": "2",
-      "petId": null,
+      "petId": "5",
       "date": "2024-05-15",
       "description": "Control general y desparasitación",
       "veterinarian": "Dra. María López"
@@ -137,6 +130,13 @@
       "date": "2024-02-20",
       "description": "Tratamiento para infección urinaria",
       "veterinarian": "Dr. Fernando Gómez"
+    },
+    {
+      "id": "4",
+      "petId": "6",
+      "date": "2025-03-27",
+      "description": "Proceso de profilaxis",
+      "veterinarian": "Dr Daniel Santiago"
     }
   ],
   "vaccinations": [

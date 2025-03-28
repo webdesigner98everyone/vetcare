@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Usuarios from "./Usuarios";
 import PetsTable from "./PetsTable"; // Importa PetsTable
+import MedicalHistoryTable from "./MedicalHistoryTable";
 import VaccinesTable from "./VaccinesTable"
 
 import "../styles/dashboard.css";
@@ -62,6 +63,7 @@ const Dashboard: React.FC = () => {
         {activeSection === "usuarios" && <Usuarios />}
         {activeSection === "mascotas" && <PetsTable />}
         {activeSection === "vacunas" && <VaccinesTable />} 
+        {activeSection === "historial" && <MedicalHistoryTable />} 
 
       </div>
     </div>
