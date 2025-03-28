@@ -11,6 +11,7 @@ const Dashboard: React.FC = () => {
   const [totalUsers, setTotalUsers] = useState(0);
   const [totalPets, setTotalPets] = useState(0);
   const [totalVaccinations, setTotalVaccinations] = useState(0);
+  const [totalmedicalHistory, setTotalmedicalHistory] = useState(0);
   const [activeSection, setActiveSection] = useState("dashboard");
 
   useEffect(() => {
@@ -28,6 +29,11 @@ const Dashboard: React.FC = () => {
       .then((response) => response.json())
       .then((data) => setTotalVaccinations(data.length))
       .catch((error) => console.error("Error al obtener vacunas:", error));
+
+      fetch("http://localhost:5000/medicalHistory")
+      .then((response) => response.json())
+      .then((data) => setTotalmedicalHistory(data.length))
+      .catch((error) => console.error("Error al obtener historiales Medicos:", error));
   }, []);
 
   return (
@@ -55,6 +61,10 @@ const Dashboard: React.FC = () => {
               <div className="card-dashboard">
                 <h2>Vacunas Aplicadas</h2>
                 <p>{totalVaccinations}</p>
+              </div>
+              <div className="card-dashboard">
+                <h2>Historiales Medicos De Mascotas</h2>
+                <p>{totalmedicalHistory}</p>
               </div>
             </div>
           </>
