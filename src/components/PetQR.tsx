@@ -11,27 +11,33 @@ const PetQR: React.FC = () => {
     <div className="qr-container">
       <h2 className="qr-title">Código QR de tus Mascotas</h2>
       <p className="section-descriptionQR">
-        Aquí puedes visualizar por medio del escaneo del QR la informacion básica de tus mascotas registradas en el sistema.
+        Escanea el QR para visualizar la información de tus mascotas.
       </p>
       {user && pets.length > 0 ? (
-        pets.map((pet) => (
-          <div key={pet.id} className="qr-card">
-            <h3>{pet.name}</h3>
-            <QRCodeCanvas
-              className="qr-code"
-              value={JSON.stringify({
-                owner: { name: user.name, contact: user.contact },
-                pet: {
-                  name: pet.name,
-                  breed: pet.breed,
-                  species: pet.species,
-                  microchip: pet.microchip,
-                },
-              })}
-              size={180}
-            />
-          </div>
-        ))
+        pets.map((pet) => {
+          const qrData = encodeURIComponent(
+            JSON.stringify({
+              owner: { name: user.name, contact: user.contact },
+              pet: {
+                name: pet.name,
+                breed: pet.breed,
+                species: pet.species,
+                microchip: pet.microchip,
+              },
+            })
+          );
+
+          return (
+            <div key={pet.id} className="qr-card">
+              <h3>{pet.name}</h3>
+              <QRCodeCanvas
+                className="qr-code"
+                value={`http://192.168.1.6:3000/qr-info/${qrData}`} // URL para mostrar info la IP utilizada es la IPV4 de nuestra maquina local
+                size={180}
+              />
+            </div>
+          );
+        })
       ) : (
         <div className="no-qr-history">
           <FaExclamationTriangle className="no-qr-icon" />
