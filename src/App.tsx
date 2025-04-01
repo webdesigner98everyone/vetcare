@@ -1,9 +1,10 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { useLocation } from "react-router-dom";
+import { useLocation, Routes, Route } from "react-router-dom";
 import AppRoutes from "./routes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PetQRInfo from "./pages/PetQRInfo"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -14,7 +15,10 @@ function App() {
     <>
       {!isDashboard && <Navbar />}
       <Container fluid className={isDashboard ? "dashboard-container" : ""}>
-        <AppRoutes />
+        <Routes>
+          <Route path="/qr-info/:data" element={<PetQRInfo />} />
+          <Route path="/*" element={<AppRoutes />} />
+        </Routes>
       </Container>
       {!isDashboard && <Footer />}
     </>

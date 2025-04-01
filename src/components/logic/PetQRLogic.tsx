@@ -36,8 +36,8 @@ export const usePetQRLogic = () => {
   useEffect(() => {
     if (!userId) return;
 
-    // 🔹 Obtener datos del usuario
-    fetch("http://localhost:5000/users")
+    // 🔹 Obtener datos del usuario desde nuestra IPV4 de nuestra maquina local
+    fetch("http://192.168.1.6:5000/users")
       .then((res) => res.json())
       .then((users: User[]) => {
         const loggedInUser = users.find((u) => u.id === userId) || null;
@@ -45,8 +45,8 @@ export const usePetQRLogic = () => {
       })
       .catch((err) => console.error("Error cargando usuarios:", err));
 
-    // 🔹 Obtener datos de mascotas asociadas al usuario
-    fetch("http://localhost:5000/pets")
+    // 🔹 Obtener datos de mascotas asociadas al usuario desde nuestra IPV4 de nuestra maquina local
+    fetch("http://192.168.1.6:5000/pets")
       .then((res) => res.json())
       .then((allPets: Pet[]) => {
         const userPets = allPets.filter((pet) => pet.ownerId === userId);
