@@ -13,7 +13,7 @@
       "id": "2",
       "name": "María Rodríguez Forero",
       "address": "Carrera 45, Bogotá, Colombia",
-      "contact": "301 987 6545",
+      "contact": "301 987 6541",
       "email": "maria.rodriguez@email.com",
       "password": "abcdef",
       "role": "viewer"
@@ -55,8 +55,9 @@
       "breed": "Siames",
       "species": "Gato",
       "gender": "Hembra",
-      "birthDate": "2020-08-20",
-      "microchip": "0987654321"
+      "birthDate": "2020-04-03",
+      "microchip": "0987654321",
+      "ownerName": "María Rodríguez Forero"
     },
     {
       "id": "3",
@@ -66,8 +67,9 @@
       "breed": "Golden Retriever",
       "species": "Perro",
       "gender": "Hembra",
-      "birthDate": "2019-10-15",
-      "microchip": "5678901234"
+      "birthDate": "2019-04-03",
+      "microchip": "5678901234",
+      "ownerName": "María Rodríguez Forero"
     },
     {
       "id": "5",
