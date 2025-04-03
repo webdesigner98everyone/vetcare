@@ -5,6 +5,7 @@ import "../styles/VaccinesTable.css";
 import AddVaccination from "./AddVaccination";
 import EditVaccination from "./EditVaccination";
 
+// Definición de interfaces para tipado seguro
 interface Vaccination {
     id: string;
     petId: string;
@@ -20,17 +21,20 @@ interface Pet {
 }
 
 const VaccinationManagement: React.FC = () => {
+    // Estados para almacenar datos
     const [vaccinations, setVaccinations] = useState<Vaccination[]>([]);
     const [pets, setPets] = useState<Pet[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const [mostrarAgregarVacuna, setMostrarAgregarVacuna] = useState(false);
     const [vacunaSeleccionada, setVacunaSeleccionada] = useState<Vaccination | null>(null);
-
+    
+    // Cargar datos al montar el componente
     useEffect(() => {
         fetchVaccinations();
         fetchPets();
     }, []);
 
+    // Función para obtener las vacunas desde el backend
     const fetchVaccinations = async () => {
         try {
             const response = await axios.get("http://localhost:5000/vaccinations");
@@ -40,6 +44,7 @@ const VaccinationManagement: React.FC = () => {
         }
     };
 
+    // Función para obtener las mascotas desde el backend
     const fetchPets = async () => {
         try {
             const response = await axios.get("http://localhost:5000/pets");
@@ -48,7 +53,8 @@ const VaccinationManagement: React.FC = () => {
             console.error("Error fetching pets:", error);
         }
     };
-
+    
+    // Función para eliminar una vacuna
     const handleDeleteVaccination = async (id: string) => {
         // Alerta de confirmación
         Swal.fire({
@@ -81,6 +87,7 @@ const VaccinationManagement: React.FC = () => {
         });
     };
 
+    // Agrupar vacunas por mascota para mejorar la presentación de datos
     const groupedVaccinations = pets.map(pet => ({
         ...pet,
         vaccines: vaccinations.filter(vac => vac.petId === pet.id)

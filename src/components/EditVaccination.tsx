@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+// Interfaces para definir la estructura de los datos
 interface Pet {
     id: string;
     name: string;
@@ -23,6 +24,7 @@ interface EditVaccinationProps {
 }
 
 const EditVaccination: React.FC<EditVaccinationProps> = ({ vaccination, onClose, onVaccinationUpdated }) => {
+    // Estado para almacenar la lista de mascotas
     const [pets, setPets] = useState<Pet[]>([]);
     const [petId, setPetId] = useState<string>(vaccination.petId);
     const [vaccineName, setVaccineName] = useState<string>(vaccination.vaccineName);
@@ -30,10 +32,12 @@ const EditVaccination: React.FC<EditVaccinationProps> = ({ vaccination, onClose,
     const [nextDose, setNextDose] = useState<string>(vaccination.nextDose);
     const [veterinarian, setVeterinarian] = useState<string>(vaccination.veterinarian);
 
+    // Se ejecuta al montar el componente para cargar la lista de mascotas
     useEffect(() => {
         fetchPets();
     }, []);
 
+    // Función para obtener la lista de mascotas desde el backend
     const fetchPets = async () => {
         try {
             const response = await axios.get("http://localhost:5000/pets");
@@ -43,6 +47,7 @@ const EditVaccination: React.FC<EditVaccinationProps> = ({ vaccination, onClose,
         }
     };
 
+    // Maneja el envío del formulario y la actualización de la vacunación
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!petId || !vaccineName || !dateAdministered || !nextDose || !veterinarian) {
@@ -51,6 +56,7 @@ const EditVaccination: React.FC<EditVaccinationProps> = ({ vaccination, onClose,
         }
 
         try {
+            // Enviar los datos actualizados al backend
             await axios.put(`http://localhost:5000/vaccinations/${vaccination.id}`, {
                 petId,
                 vaccineName,
@@ -59,6 +65,7 @@ const EditVaccination: React.FC<EditVaccinationProps> = ({ vaccination, onClose,
                 veterinarian,
             });
 
+            // Mostrar mensaje de éxito y actualizar la lista de vacunaciones
             Swal.fire("Éxito", "Vacunación actualizada correctamente.", "success");
             onVaccinationUpdated();
             onClose();

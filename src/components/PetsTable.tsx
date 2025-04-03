@@ -5,12 +5,13 @@ import AddPets from "./AddPets";
 import EditarMascota from "./UpdatePet";
 import Swal from "sweetalert2";
 
-
+// Definición de la interfaz para el usuario
 interface User {
     id: string;
     name: string;
 }
 
+// Definición de la interfaz para la mascota
 interface Pet {
     id: string;
     ownerId: string;
@@ -25,22 +26,26 @@ interface Pet {
 }
 
 const PetsTable = () => {
+    // Estados para almacenar las mascotas, usuarios, búsqueda, modal de agregar y edición
     const [pets, setPets] = useState<Pet[]>([]);
     const [users, setUsers] = useState<User[]>([]);
     const [search, setSearch] = useState("");
     const [showAddModal, setShowAddModal] = useState(false);
     const [editingPet, setEditingPet] = useState<Pet | null>(null);
 
+    // Cargar usuarios al montar el componente
     useEffect(() => {
         fetchUsers();
     }, []);
 
+    // Cargar mascotas cuando los usuarios estén disponibles
     useEffect(() => {
         if (users.length > 0) {
             fetchPets();
         }
     }, [users]);
 
+    // Función para obtener la lista de mascotas desde la API
     const fetchPets = async () => {
         try {
             const response = await axios.get("http://localhost:5000/pets");
@@ -54,6 +59,7 @@ const PetsTable = () => {
         }
     };
 
+    // Función para obtener la lista de usuarios desde la API
     const fetchUsers = async () => {
         try {
             const response = await axios.get("http://localhost:5000/users");
@@ -88,6 +94,7 @@ const PetsTable = () => {
         });
     };
 
+    // Función para agregar una nueva mascota
     const handleAddPet = async (newPet: Omit<Pet, "id">) => {
         try {
             const response = await axios.post("http://localhost:5000/pets", newPet);
@@ -100,6 +107,7 @@ const PetsTable = () => {
         }
     };
 
+    // Función para actualizar una mascota existente
     const handleUpdatePet = async (updatedPet: Pet) => {
         try {
             await axios.put(`http://localhost:5000/pets/${updatedPet.id}`, updatedPet);

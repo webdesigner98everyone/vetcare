@@ -10,6 +10,7 @@ interface Pet {
 }
 
 export function useNavbarLogic() {
+  // Obtener usuario almacenado en `localStorage`
   const storedUser = localStorage.getItem("user");
   const user = storedUser ? JSON.parse(storedUser) : null; // Si `localStorage` está vacío, `user` será `null`
   const navigate = useNavigate();
@@ -17,10 +18,11 @@ export function useNavbarLogic() {
   const [hasNotifications, setHasNotifications] = useState(false);
   const [notifications, setNotifications] = useState<string[]>([]);
 
+  // Función para marcar una notificación como leída
   const markAsRead = (index: number) => {
     const updatedNotifications = [...notifications];
     updatedNotifications.splice(index, 1); // Elimina la notificación seleccionada
-  
+
     setNotifications(updatedNotifications);
     setHasNotifications(updatedNotifications.length > 0);
   };
@@ -33,7 +35,7 @@ export function useNavbarLogic() {
           const today = new Date();
           const tomorrow = new Date(today);
           tomorrow.setDate(today.getDate() + 1); // Fecha de mañana
-  
+
           const upcomingBirthdays = pets.filter((pet: Pet) => {
             const birthDateParts = pet.birthDate.split("-"); // ["YYYY", "MM", "DD"]
             const petBirthday = new Date(
@@ -41,10 +43,10 @@ export function useNavbarLogic() {
               parseInt(birthDateParts[1]) - 1, // Mes (0 indexado)
               parseInt(birthDateParts[2]) // Día
             );
-  
+
             return petBirthday.getDate() === tomorrow.getDate() && petBirthday.getMonth() === tomorrow.getMonth();
           });
-  
+
           if (upcomingBirthdays.length > 0) {
             setHasNotifications(true);
             setNotifications(
@@ -58,13 +60,13 @@ export function useNavbarLogic() {
         .catch((error) => console.error("Error al obtener mascotas:", error));
     }
   }, [user]);
-  
 
+  // Función para cerrar sesión
   const handleLogout = () => {
     localStorage.removeItem("user");
     navigate("/login");
   };
-
+  // Función para desplazarse a la sección de testimonios
   const handleScrollToTestimonials = () => {
     if (location.pathname === "/") {
       scroll.scrollTo(document.getElementById("testimonios")?.offsetTop || 0, {

@@ -8,12 +8,17 @@ import VaccinesTable from "./VaccinesTable"
 import "../styles/dashboard.css";
 
 const Dashboard: React.FC = () => {
+  // Estados para almacenar la cantidad de usuarios, mascotas, vacunas y historiales médicos
+
   const [totalUsers, setTotalUsers] = useState(0);
   const [totalPets, setTotalPets] = useState(0);
   const [totalVaccinations, setTotalVaccinations] = useState(0);
   const [totalmedicalHistory, setTotalmedicalHistory] = useState(0);
+  // Estado para manejar la sección activa del dashboard
+
   const [activeSection, setActiveSection] = useState("dashboard");
 
+  // useEffect para obtener datos de la API cuando se monta el componente
   useEffect(() => {
     fetch("http://localhost:5000/users")
       .then((response) => response.json())
@@ -30,7 +35,7 @@ const Dashboard: React.FC = () => {
       .then((data) => setTotalVaccinations(data.length))
       .catch((error) => console.error("Error al obtener vacunas:", error));
 
-      fetch("http://localhost:5000/medicalHistory")
+    fetch("http://localhost:5000/medicalHistory")
       .then((response) => response.json())
       .then((data) => setTotalmedicalHistory(data.length))
       .catch((error) => console.error("Error al obtener historiales Medicos:", error));
@@ -72,8 +77,8 @@ const Dashboard: React.FC = () => {
 
         {activeSection === "usuarios" && <Usuarios />}
         {activeSection === "mascotas" && <PetsTable />}
-        {activeSection === "vacunas" && <VaccinesTable />} 
-        {activeSection === "historial" && <MedicalHistoryTable />} 
+        {activeSection === "vacunas" && <VaccinesTable />}
+        {activeSection === "historial" && <MedicalHistoryTable />}
 
       </div>
     </div>

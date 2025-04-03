@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import "../styles/UpdatePet.css"
 
+// Definimos las interfaces para tipar correctamente los datos de las mascotas y los usuarios
 interface Pet {
     id: string;
     ownerId: string;
@@ -26,13 +27,16 @@ interface EditPetProps {
 }
 
 const EditPet: React.FC<EditPetProps> = ({ pet, onClose, onUpdate }) => {
+    // Estado para almacenar la información del formulario y los usuarios
     const [formData, setFormData] = useState<Pet>(pet);
     const [users, setUsers] = useState<User[]>([]);
 
+    // Sincroniza el estado cuando el prop `pet` cambia
     useEffect(() => {
         setFormData(pet);
     }, [pet]);
 
+    // Obtiene la lista de usuarios desde el backend
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -47,10 +51,12 @@ const EditPet: React.FC<EditPetProps> = ({ pet, onClose, onUpdate }) => {
         fetchUsers();
     }, []);
 
+    // Maneja cambios en los inputs del formulario
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // Maneja la carga de imágenes y las convierte en base64
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
@@ -64,7 +70,8 @@ const EditPet: React.FC<EditPetProps> = ({ pet, onClose, onUpdate }) => {
             reader.readAsDataURL(file);
         }
     };
-
+    
+    // Maneja el envío del formulario para actualizar la mascota
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
