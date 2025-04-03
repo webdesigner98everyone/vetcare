@@ -6,24 +6,28 @@ import "../styles/PetVaccines.css";
 const VaccinationList: React.FC = () => {
   const [userId, setUserId] = useState<string | null>(null);
 
+  // Obtener el ID del usuario desde localStorage al cargar el componente
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
-        setUserId(parsedUser.id || null);
+        setUserId(parsedUser.id || null); // Almacena el ID del usuario si existe
       } catch (error) {
         console.error("Error al parsear el usuario de localStorage", error);
       }
     }
   }, []);
 
+  // Obtener datos de mascotas y vacunaciones asociadas al usuario
   const { pets, vaccinations, loading, error } = usePetVaccinations(userId || undefined);
 
+  // Consolas para depuración y seguimiento de datos obtenidos
   console.log("userId obtenido:", userId);
   console.log("Mascotas obtenidas:", pets);
   console.log("Vacunas obtenidas:", vaccinations);
 
+  // Genera dinámicamente el contenido a mostrar en la interfaz
   const content = useMemo(() => {
     if (!userId) return <p className="error-text">Usuario no identificado. Por favor, inicia sesión.</p>;
     if (loading) return <p className="loading-text">Cargando información...</p>;
@@ -68,7 +72,7 @@ const VaccinationList: React.FC = () => {
       <p className="description-vaccines">
         Aquí puedes visualizar la bitacora de vacunación de tus mascotas registradas en el sistema y asi poder estar atento de sus proximas dosis.
       </p>
-      {content}
+      {content} {/* Renderiza el contenido generado dinámicamente */}
     </div>
   );
 };

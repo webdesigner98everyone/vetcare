@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import "../styles/AddPets.css";
 
+// Definición de la interfaz para una mascota
 interface Pet {
     id: string;
     ownerId: string;
@@ -13,12 +14,12 @@ interface Pet {
     microchip: string;
     photo: string;
 }
-
+// Definición de la interfaz para un usuario
 interface User {
     id: string;
     name: string;
 }
-
+// Definición de las propiedades que el componente recibe
 interface Props {
     onClose: () => void;
     onAdd: (pet: Pet) => Promise<void>;
@@ -26,6 +27,7 @@ interface Props {
 }
 
 const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
+    // Estado para almacenar los datos del formulario de la mascota
     const [formData, setFormData] = useState<Omit<Pet, "id">>({
         ownerId: "",
         name: "",
@@ -53,11 +55,11 @@ const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
 
         fetchUsers();
     }, []);
-
+    // Manejar cambios en los campos del formulario
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
-
+    // Manejar la carga de archivos y convertir la imagen a base64
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
@@ -68,13 +70,13 @@ const AgregarMascota: React.FC<Props> = ({ onClose, onAdd, existingPets }) => {
             reader.readAsDataURL(file);
         }
     };
-
+    // Generar un nuevo ID para la mascota basado en los IDs existentes
     const getNextId = (): string => {
         if (existingPets.length === 0) return "1";
         const lastId = Math.max(...existingPets.map((pet) => parseInt(pet.id, 10)));
         return (lastId + 1).toString();
     };
-
+    // Manejar el envío del formulario
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 

@@ -6,6 +6,7 @@ import AddMedicalRecord from "./AddMedicalRecord";
 import EditMedicalRecord from "./EditMedicalRecord";
 import AddMedicalRecordModal from "./AddMedicalRecordModal";
 
+// Definición de interfaces para tipado en TypeScript
 interface MedicalRecord {
     id: string;
     petId: string;
@@ -20,6 +21,7 @@ interface Pet {
 }
 
 const MedicalHistoryManagement: React.FC = () => {
+    // Estados para almacenar los registros médicos y las mascotas
     const [medicalRecords, setMedicalRecords] = useState<MedicalRecord[]>([]);
     const [pets, setPets] = useState<Pet[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -30,10 +32,12 @@ const MedicalHistoryManagement: React.FC = () => {
     // Estado para manejar la visibilidad del modal
     const [showAddRecordModal, setShowAddRecordModal] = useState(false);
 
+    // Cargar datos de la API al montar el componente
     useEffect(() => {
         fetchData();
     }, []);
 
+     // Función para obtener los datos de registros médicos y mascotas desde la API
     const fetchData = async () => {
         try {
             const [medicalRecordsResponse, petsResponse] = await Promise.all([
@@ -48,6 +52,7 @@ const MedicalHistoryManagement: React.FC = () => {
         }
     };
 
+    // Función para eliminar un registro médico
     const handleDeleteRecord = async (id: string) => {
         Swal.fire({
             title: "¿Estás seguro?",

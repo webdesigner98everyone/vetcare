@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "../styles/EditMedicalRecord.css";
 
+// Interfaz que define la estructura de un historial médico
 interface MedicalRecord {
     id: string;
     date: string;
@@ -10,6 +11,7 @@ interface MedicalRecord {
     veterinarian: string;
 }
 
+// Propiedades que recibe el componente
 interface Props {
     record: MedicalRecord;
     onClose: () => void;
@@ -18,6 +20,8 @@ interface Props {
 
 const EditMedicalRecord: React.FC<Props> = ({ record, onClose, onRecordUpdated }) => {
     console.log("Renderizando modal con record:", record);
+
+    // Estado para manejar los datos del formulario
     const [formData, setFormData] = useState<MedicalRecord>({
         id: "",
         date: "",
@@ -25,6 +29,7 @@ const EditMedicalRecord: React.FC<Props> = ({ record, onClose, onRecordUpdated }
         veterinarian: ""
     });
 
+    // Cargar los datos del historial médico seleccionado en el formulario
     useEffect(() => {
         console.log("Cargando datos del registro a editar:", record);
         if (record) {
@@ -32,6 +37,7 @@ const EditMedicalRecord: React.FC<Props> = ({ record, onClose, onRecordUpdated }
         }
     }, [record]);
 
+    // Manejar cambios en los campos del formulario
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prevState) => ({
@@ -40,6 +46,7 @@ const EditMedicalRecord: React.FC<Props> = ({ record, onClose, onRecordUpdated }
         }));
     };
 
+    // Enviar datos actualizados al backend
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         console.log("Datos enviados en la actualización:", formData);

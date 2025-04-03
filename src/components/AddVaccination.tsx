@@ -3,11 +3,13 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "../styles/AddVaccination.css";
 
+// Interfaz para representar una mascota
 interface Pet {
     id: string;
     name: string;
 }
 
+// Interfaz para representar una vacunación
 interface Vaccination {
     id: string; // Se mantiene como cadena
     petId: string;
@@ -17,25 +19,31 @@ interface Vaccination {
     veterinarian: string;
 }
 
+// Props que recibe el componente
 interface AddVaccinationProps {
     onClose: () => void;
     onVaccinationAdded: () => void;
 }
 
 const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationAdded }) => {
+    // Estados para almacenar mascotas y vacunas existentes
     const [pets, setPets] = useState<Pet[]>([]);
     const [vaccinations, setVaccinations] = useState<Vaccination[]>([]);
+
+    // Estados para el formulario
     const [petId, setPetId] = useState<string>("");
     const [vaccineName, setVaccineName] = useState<string>("");
     const [dateAdministered, setDateAdministered] = useState<string>("");
     const [nextDose, setNextDose] = useState<string>("");
     const [veterinarian, setVeterinarian] = useState<string>("");
 
+    // Cargar mascotas y vacunas al montar el componente
     useEffect(() => {
         fetchPets();
         fetchVaccinations();
     }, []);
 
+    // Función para obtener la lista de mascotas desde la API
     const fetchPets = async () => {
         try {
             const response = await axios.get("http://localhost:5000/pets");
@@ -45,6 +53,7 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
         }
     };
 
+    // Función para obtener la lista de vacunas desde la API
     const fetchVaccinations = async () => {
         try {
             const response = await axios.get("http://localhost:5000/vaccinations");
@@ -54,12 +63,14 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
         }
     };
 
+    // Función para generar el siguiente ID de vacunación
     const getNextId = (): string => {
         if (vaccinations.length === 0) return "1";
         const maxId = Math.max(...vaccinations.map(vaccine => Number(vaccine.id)));
         return String(maxId + 1);
     };
 
+    // Manejo del envío del formulario
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!petId || !vaccineName || !dateAdministered || !nextDose || !veterinarian) {
@@ -67,6 +78,7 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
             return;
         }
 
+        // Creación del nuevo objeto de vacunación
         const newVaccination: Vaccination = {
             id: getNextId(),
             petId,
@@ -77,6 +89,7 @@ const AddVaccination: React.FC<AddVaccinationProps> = ({ onClose, onVaccinationA
         };
 
         try {
+            // Enviar la nueva vacunación al backend
             await axios.post("http://localhost:5000/vaccinations", newVaccination);
             onVaccinationAdded();
             // Mostrar alerta con SweetAlert2

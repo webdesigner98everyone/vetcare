@@ -3,6 +3,7 @@ import { getPetsByOwnerId } from "./logic/petService";
 import { Card, Alert, Spinner, Modal, Button } from "react-bootstrap";
 import "../styles/PetProfile.css";
 
+// Definimos la interfaz para la estructura de los datos de la mascota
 interface Pet {
   id: string;
   ownerId: number;
@@ -16,12 +17,15 @@ interface Pet {
 }
 
 const PetProfile: React.FC = () => {
+  // Estados para manejar los datos y la UI del componente
+
   const [pets, setPets] = useState<Pet[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedPet, setSelectedPet] = useState<Pet | null>(null);
   const [showModal, setShowModal] = useState(false);
 
+  // useEffect para cargar las mascotas del usuario cuando se monta el componente
   useEffect(() => {
     const fetchPets = async () => {
       setLoading(true);
@@ -38,11 +42,13 @@ const PetProfile: React.FC = () => {
     fetchPets();
   }, []);
 
+  // Función para abrir el modal con la información de la mascota seleccionada
   const handleShowModal = (pet: Pet) => {
     setSelectedPet(pet);
     setShowModal(true);
   };
 
+  // Función para cerrar el modal
   const handleCloseModal = () => {
     setShowModal(false);
     setSelectedPet(null);
@@ -53,7 +59,7 @@ const PetProfile: React.FC = () => {
       <div className="profile-container">
         <h2>Información de tu mascota 🐶</h2>
         <p className="section-description">
-          Aquí puedes visualizar el perfil de tus mascotas registradas en el sistema. 
+          Aquí puedes visualizar el perfil de tus mascotas registradas en el sistema.
           Haz clic en una de ellas para ver más detalles.
         </p>
         {error && <Alert variant="danger">{error}</Alert>}
