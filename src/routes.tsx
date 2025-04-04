@@ -11,7 +11,6 @@ import PetQR from "./components/PetQR";
 import PetVaccines from "./components/PetVaccines";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import UpdateProfile from "./components/UpdateProfile";
-import AdminPanel from "./components/AdminPanel";
 import ProtectedRoute from "./components/ProtectedRouteProps";
 
 export default function AppRoutes() {
@@ -52,12 +51,6 @@ export default function AppRoutes() {
       <Route path="/history" element={
         <ProtectedRoute allowedRoles={["admin", "viewer"]}>
           <MedicalHistory />
-        </ProtectedRoute>
-      } />
-
-      <Route path="/admin" element={
-        <ProtectedRoute allowedRoles={["admin"]}>
-          <AdminPanel />
         </ProtectedRoute>
       } />
 
