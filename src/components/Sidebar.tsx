@@ -82,10 +82,8 @@ const Sidebar: React.FC<SidebarProps> = ({ setActiveSection }) => {
                             <FaHistory /> <span>Historial Médico</span>
                         </li>
 
-                        <li>
-                            <Link to="/dashboard/configuracion" onClick={() => setIsOpen(false)}>
-                                <FaCog /> <span>Configuración</span>
-                            </Link>
+                        <li onClick={() => { setActiveSection("configuracion"); setIsOpen(false); }}>
+                            <FaCog /> <span>Configuración</span>
                         </li>
 
                     </ul>
