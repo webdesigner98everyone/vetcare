@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "name": "Carlos Gómez ",
+      "name": "Carlos Gómez Velez",
       "address": "Calle 123, cali, Colombia",
       "contact": "300 123 4567",
       "email": "carlos.gomez@email.com",
@@ -55,7 +55,7 @@
       "breed": "Siames",
       "species": "Gato",
       "gender": "Hembra",
-      "birthDate": "2020-04-05",
+      "birthDate": "2020-04-11",
       "microchip": "0987654321",
       "ownerName": "María Rodríguez Forero"
     },

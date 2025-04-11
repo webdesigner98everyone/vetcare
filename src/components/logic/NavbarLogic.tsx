@@ -12,7 +12,15 @@ interface Pet {
 export function useNavbarLogic() {
   // Obtener usuario almacenado en `localStorage`
   const storedUser = localStorage.getItem("user");
-  const user = storedUser ? JSON.parse(storedUser) : null; // Si `localStorage` está vacío, `user` será `null`
+  let user = null;
+
+  try {
+    user = storedUser ? JSON.parse(storedUser) : null;
+  } catch (error) {
+    console.error("Error parsing user from localStorage:", error);
+    user = null;
+  }
+
   const navigate = useNavigate();
   const location = useLocation();
   const [hasNotifications, setHasNotifications] = useState(false);
