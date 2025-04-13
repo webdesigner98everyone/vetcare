@@ -48,7 +48,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "vite",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db.json --port 5000",
+    "api": "node server.js" 
   },
   "eslintConfig": {
     "extends": [
