@@ -5,7 +5,7 @@ import PetsTable from "./PetsTable"; // Importa PetsTable
 import MedicalHistoryTable from "./MedicalHistoryTable";
 import PreferencesSettings from "./PreferencesSettings";
 import VaccinesTable from "./VaccinesTable"
-import "../styles/dashboard.css";
+import "../styles/Dashboard.css";
 
 const Dashboard: React.FC = () => {
   // Estados para almacenar la cantidad de usuarios, mascotas, vacunas y historiales médicos
