@@ -44,6 +44,15 @@
       "role": "viewer",
       "address": "calle 50  - 101-60 Cali Valle",
       "contact": "3012569887"
+    },
+    {
+      "id": "7",
+      "name": "admin",
+      "email": "admin.admin@gmail.com",
+      "password": "admin123",
+      "address": "calle",
+      "contact": "123456789",
+      "role": "admin"
     }
   ],
   "pets": [
@@ -51,7 +60,7 @@
       "id": "2",
       "ownerId": "2",
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW1IdS2CLigVKb84B4FrSWcVKt0wQufXDlxw&s",
-      "name": "Mia",
+      "name": "pepita",
       "breed": "Siames",
       "species": "Gato",
       "gender": "Hembra",
