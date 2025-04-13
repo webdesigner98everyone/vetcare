@@ -5,7 +5,6 @@ import PetsTable from "./PetsTable"; // Importa PetsTable
 import MedicalHistoryTable from "./MedicalHistoryTable";
 import PreferencesSettings from "./PreferencesSettings";
 import VaccinesTable from "./VaccinesTable"
-
 import "../styles/dashboard.css";
 
 const Dashboard: React.FC = () => {
