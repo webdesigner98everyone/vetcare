@@ -32,7 +32,7 @@ const PetQR: React.FC = () => {
               <h3>{pet.name}</h3>
               <QRCodeCanvas
                 className="qr-code"
-                value={`http://192.168.1.4:3000/qr-info/${qrData}`} // URL para mostrar info la IP utilizada es la IPV4 de nuestra maquina local
+                value={`http://192.168.1.7:3000/qr-info/${qrData}`} // URL para mostrar info la IP utilizada es la IPV4 de nuestra maquina local
                 size={180}
               />
             </div>
